@@ -23,4 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
     }
+    
+    private func urlSessionConfiguration() -> URLSessionConfiguration {
+        URLSessionConfiguration.default
+    }
 }
