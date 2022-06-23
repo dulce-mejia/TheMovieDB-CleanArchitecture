@@ -14,8 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        UINavigationBarAppearance.setDefaultApperance()
+        runAppFlow()
         return true
+    }
+
+    private func runAppFlow() {
+        let httpClient = URLSessionHTTPClient(session: makeURLSession())
+        let firstVC = loadFirstVC(httpClient: httpClient)
+        setupRootViewController(firstVC)
     }
 
     private func setupRootViewController(_ rootViewController: UIViewController) {
@@ -24,7 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
     }
     
-    private func urlSessionConfiguration() -> URLSessionConfiguration {
-        URLSessionConfiguration.default
+    private func loadFirstVC(httpClient: HTTPClient) -> UIViewController {
+        let feedLoader = RemoteFeedLoader(client: httpClient)
+        let feedVC = FeedUIComposer.feedComposedWith(feedLoader: feedLoader)
+        return UINavigationController(rootViewController: feedVC)
+    }
+    
+    private func makeURLSession() -> URLSession {
+        URLSession(configuration: .default)
     }
 }

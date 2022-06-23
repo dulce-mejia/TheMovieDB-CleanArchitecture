@@ -34,11 +34,14 @@ final class FeedMapper {
     }
     
     static func map(_ data: Data, _ response: HTTPURLResponse) -> RemoteFeedLoader.Result {
+        
         guard response.isOK else {
             return .failure(RemoteFeedLoader.Error.invalidData)
         }
         do {
-            let result = try JSONDecoder().decode(GenericResultDTO<MovieDTO>.self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let result = try decoder.decode(GenericResultDTO<MovieDTO>.self, from: data)
             return .success(GenericResult(page: result.page,
                                           results: result.results.map({ $0.movie })))
         } catch {

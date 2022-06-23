@@ -11,7 +11,6 @@
 		6594C35E93D64E4A41322CA5 /* Pods_TheMovieDB_CleanArchitecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEABE0FF9E50C7BD276A3B5 /* Pods_TheMovieDB_CleanArchitecture.framework */; };
 		6DCDAA0F4CC5C2C0BA34756A /* Pods_TheMovieDB_CleanArchitecture_TheMovieDB_CleanArchitectureUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92935556AD6A0D52CD02F10 /* Pods_TheMovieDB_CleanArchitecture_TheMovieDB_CleanArchitectureUITests.framework */; };
 		F90A6F1128622C8D0037D2BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90A6F1028622C8D0037D2BB /* AppDelegate.swift */; };
-		F90A6F1328622C8D0037D2BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90A6F1228622C8D0037D2BB /* SceneDelegate.swift */; };
 		F90A6F1A28622C8F0037D2BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F90A6F1928622C8F0037D2BB /* Assets.xcassets */; };
 		F90A6F1D28622C8F0037D2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F90A6F1B28622C8F0037D2BB /* LaunchScreen.storyboard */; };
 		F90A6F2828622C8F0037D2BB /* TheMovieDB_CleanArchitectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F90A6F2728622C8F0037D2BB /* TheMovieDB_CleanArchitectureTests.swift */; };
@@ -30,6 +29,16 @@
 		F9610F322863D873002582D7 /* FeedMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F312863D873002582D7 /* FeedMapper.swift */; };
 		F976F0F32864B42400DF87AB /* HTTPHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F22864B42400DF87AB /* HTTPHelpers.swift */; };
 		F976F0F62864D12300DF87AB /* GenericResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F52864D12300DF87AB /* GenericResult.swift */; };
+		F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F72864D9AF00DF87AB /* FeedViewController.swift */; };
+		F976F0FC2864DBE000DF87AB /* MovieSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0FB2864DBE000DF87AB /* MovieSectionView.swift */; };
+		F976F0FE2864DC7F00DF87AB /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0FD2864DC7F00DF87AB /* MovieView.swift */; };
+		F976F1002864DD1D00DF87AB /* UIImageView+loadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0FF2864DD1D00DF87AB /* UIImageView+loadImage.swift */; };
+		F976F1022864E84100DF87AB /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F1012864E84100DF87AB /* MovieViewModel.swift */; };
+		F976F1042864ED6900DF87AB /* MovieSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F1032864ED6900DF87AB /* MovieSectionViewModel.swift */; };
+		F976F1062864F07900DF87AB /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F1052864F07900DF87AB /* FeedViewModel.swift */; };
+		F976F109286509E000DF87AB /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F108286509E000DF87AB /* FeedUIComposer.swift */; };
+		F976F10B2865112B00DF87AB /* FeedSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */; };
+		F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +70,6 @@
 		BEEABE0FF9E50C7BD276A3B5 /* Pods_TheMovieDB_CleanArchitecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDB_CleanArchitecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90A6F0D28622C8D0037D2BB /* TheMovieDB-CleanArchitecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheMovieDB-CleanArchitecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F90A6F1028622C8D0037D2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F90A6F1228622C8D0037D2BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F90A6F1928622C8F0037D2BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F90A6F1C28622C8F0037D2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F90A6F1E28622C8F0037D2BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +91,16 @@
 		F9610F312863D873002582D7 /* FeedMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMapper.swift; sourceTree = "<group>"; };
 		F976F0F22864B42400DF87AB /* HTTPHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHelpers.swift; sourceTree = "<group>"; };
 		F976F0F52864D12300DF87AB /* GenericResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResult.swift; sourceTree = "<group>"; };
+		F976F0F72864D9AF00DF87AB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		F976F0FB2864DBE000DF87AB /* MovieSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSectionView.swift; sourceTree = "<group>"; };
+		F976F0FD2864DC7F00DF87AB /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		F976F0FF2864DD1D00DF87AB /* UIImageView+loadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadImage.swift"; sourceTree = "<group>"; };
+		F976F1012864E84100DF87AB /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		F976F1032864ED6900DF87AB /* MovieSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSectionViewModel.swift; sourceTree = "<group>"; };
+		F976F1052864F07900DF87AB /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		F976F108286509E000DF87AB /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
+		F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSectionViewModel.swift; sourceTree = "<group>"; };
+		F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +209,8 @@
 		F90A6F402862319A0037D2BB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F976F107286503E900DF87AB /* Composers */,
 				F90A6F1028622C8D0037D2BB /* AppDelegate.swift */,
-				F90A6F1228622C8D0037D2BB /* SceneDelegate.swift */,
 				F90A6F1E28622C8F0037D2BB /* Info.plist */,
 				F93E33362862749A00A0CA2D /* Shared */,
 			);
@@ -247,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				F90A6F1B28622C8F0037D2BB /* LaunchScreen.storyboard */,
+				F976F0FF2864DD1D00DF87AB /* UIImageView+loadImage.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -263,6 +282,8 @@
 		F9610F1A28635FEA002582D7 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				F976F0FA2864DB9500DF87AB /* ViewControllers */,
+				F976F0F92864DB9000DF87AB /* Views */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -270,6 +291,10 @@
 		F9610F1B28635FF6002582D7 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				F976F1012864E84100DF87AB /* MovieViewModel.swift */,
+				F976F1032864ED6900DF87AB /* MovieSectionViewModel.swift */,
+				F976F1052864F07900DF87AB /* FeedViewModel.swift */,
+				F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -314,6 +339,7 @@
 				F9610F2B2863B820002582D7 /* HTTPClient.swift */,
 				F9610F2D2863D2E5002582D7 /* Endpoint.swift */,
 				F976F0F22864B42400DF87AB /* HTTPHelpers.swift */,
+				F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -334,6 +360,31 @@
 				F976F0F52864D12300DF87AB /* GenericResult.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		F976F0F92864DB9000DF87AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F976F0FB2864DBE000DF87AB /* MovieSectionView.swift */,
+				F976F0FD2864DC7F00DF87AB /* MovieView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F976F0FA2864DB9500DF87AB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F976F0F72864D9AF00DF87AB /* FeedViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F976F107286503E900DF87AB /* Composers */ = {
+			isa = PBXGroup;
+			children = (
+				F976F108286509E000DF87AB /* FeedUIComposer.swift */,
+			);
+			path = Composers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,19 +663,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9610F2A2863B68F002582D7 /* RemoteFeedLoader.swift in Sources */,
+				F976F109286509E000DF87AB /* FeedUIComposer.swift in Sources */,
+				F976F0FC2864DBE000DF87AB /* MovieSectionView.swift in Sources */,
 				F9610F282863B551002582D7 /* FeedLoader.swift in Sources */,
 				F976F0F62864D12300DF87AB /* GenericResult.swift in Sources */,
 				F93E33382862756E00A0CA2D /* OSLog+LogType.swift in Sources */,
 				F93E333A286275AE00A0CA2D /* UINavigationAppearance+defaultApperance.swift in Sources */,
 				F976F0F32864B42400DF87AB /* HTTPHelpers.swift in Sources */,
 				F9610F2E2863D2E5002582D7 /* Endpoint.swift in Sources */,
+				F976F1022864E84100DF87AB /* MovieViewModel.swift in Sources */,
+				F976F1002864DD1D00DF87AB /* UIImageView+loadImage.swift in Sources */,
+				F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */,
+				F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */,
+				F976F1042864ED6900DF87AB /* MovieSectionViewModel.swift in Sources */,
 				F90A6F1128622C8D0037D2BB /* AppDelegate.swift in Sources */,
 				F9610F2C2863B820002582D7 /* HTTPClient.swift in Sources */,
+				F976F1062864F07900DF87AB /* FeedViewModel.swift in Sources */,
 				F9610F302863D675002582D7 /* FeedType.swift in Sources */,
 				F9610F322863D873002582D7 /* FeedMapper.swift in Sources */,
-				F90A6F1328622C8D0037D2BB /* SceneDelegate.swift in Sources */,
 				F9610F2528637CB5002582D7 /* GenericResultDTO.swift in Sources */,
 				F9610F2128637BF7002582D7 /* Movie.swift in Sources */,
+				F976F10B2865112B00DF87AB /* FeedSectionViewModel.swift in Sources */,
+				F976F0FE2864DC7F00DF87AB /* MovieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,7 +858,6 @@
 				INFOPLIST_FILE = "TheMovieDB-CleanArchitecture/Core/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -826,7 +885,6 @@
 				INFOPLIST_FILE = "TheMovieDB-CleanArchitecture/Core/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
