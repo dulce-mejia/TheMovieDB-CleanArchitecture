@@ -8,8 +8,7 @@
 import Foundation
 
 final class FeedMapper {
-    // TODO: create mapper to decode Feed result
-    
+
     struct MovieDTO: Codable {
         let id: Int
         let backdropPath: String?
@@ -20,7 +19,7 @@ final class FeedMapper {
         let voteAverage: Double
         let releaseDate: String?
         let overview: String?
-        
+
         var movie: Movie {
             Movie(id: id,
                   backdropPath: backdropPath,
