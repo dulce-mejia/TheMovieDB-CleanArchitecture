@@ -21,13 +21,15 @@
 		F93E33382862756E00A0CA2D /* OSLog+LogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E33372862756E00A0CA2D /* OSLog+LogType.swift */; };
 		F93E333A286275AE00A0CA2D /* UINavigationAppearance+defaultApperance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93E3339286275AE00A0CA2D /* UINavigationAppearance+defaultApperance.swift */; };
 		F9610F2128637BF7002582D7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F2028637BF7002582D7 /* Movie.swift */; };
-		F9610F2528637CB5002582D7 /* GenericResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F2428637CB5002582D7 /* GenericResult.swift */; };
+		F9610F2528637CB5002582D7 /* GenericResultDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F2428637CB5002582D7 /* GenericResultDTO.swift */; };
 		F9610F282863B551002582D7 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F272863B551002582D7 /* FeedLoader.swift */; };
 		F9610F2A2863B68F002582D7 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F292863B68F002582D7 /* RemoteFeedLoader.swift */; };
 		F9610F2C2863B820002582D7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F2B2863B820002582D7 /* HTTPClient.swift */; };
 		F9610F2E2863D2E5002582D7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F2D2863D2E5002582D7 /* Endpoint.swift */; };
 		F9610F302863D675002582D7 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F2F2863D675002582D7 /* FeedType.swift */; };
 		F9610F322863D873002582D7 /* FeedMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F312863D873002582D7 /* FeedMapper.swift */; };
+		F976F0F32864B42400DF87AB /* HTTPHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F22864B42400DF87AB /* HTTPHelpers.swift */; };
+		F976F0F62864D12300DF87AB /* GenericResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F52864D12300DF87AB /* GenericResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,13 +74,15 @@
 		F93E33372862756E00A0CA2D /* OSLog+LogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+LogType.swift"; sourceTree = "<group>"; };
 		F93E3339286275AE00A0CA2D /* UINavigationAppearance+defaultApperance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationAppearance+defaultApperance.swift"; sourceTree = "<group>"; };
 		F9610F2028637BF7002582D7 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		F9610F2428637CB5002582D7 /* GenericResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResult.swift; sourceTree = "<group>"; };
+		F9610F2428637CB5002582D7 /* GenericResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResultDTO.swift; sourceTree = "<group>"; };
 		F9610F272863B551002582D7 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		F9610F292863B68F002582D7 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		F9610F2B2863B820002582D7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		F9610F2D2863D2E5002582D7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F9610F2F2863D675002582D7 /* FeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		F9610F312863D873002582D7 /* FeedMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMapper.swift; sourceTree = "<group>"; };
+		F976F0F22864B42400DF87AB /* HTTPHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHelpers.swift; sourceTree = "<group>"; };
+		F976F0F52864D12300DF87AB /* GenericResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +220,7 @@
 		F90A6F43286231E00037D2BB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				F976F0F42864D11300DF87AB /* Shared */,
 				F9610F1C28637414002582D7 /* Feed */,
 			);
 			path = Domain;
@@ -305,9 +310,10 @@
 		F9610F2328637C9E002582D7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				F9610F2428637CB5002582D7 /* GenericResult.swift */,
+				F9610F2428637CB5002582D7 /* GenericResultDTO.swift */,
 				F9610F2B2863B820002582D7 /* HTTPClient.swift */,
 				F9610F2D2863D2E5002582D7 /* Endpoint.swift */,
+				F976F0F22864B42400DF87AB /* HTTPHelpers.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -320,6 +326,14 @@
 				F9610F312863D873002582D7 /* FeedMapper.swift */,
 			);
 			path = "Feed API";
+			sourceTree = "<group>";
+		};
+		F976F0F42864D11300DF87AB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F976F0F52864D12300DF87AB /* GenericResult.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -599,15 +613,17 @@
 			files = (
 				F9610F2A2863B68F002582D7 /* RemoteFeedLoader.swift in Sources */,
 				F9610F282863B551002582D7 /* FeedLoader.swift in Sources */,
+				F976F0F62864D12300DF87AB /* GenericResult.swift in Sources */,
 				F93E33382862756E00A0CA2D /* OSLog+LogType.swift in Sources */,
 				F93E333A286275AE00A0CA2D /* UINavigationAppearance+defaultApperance.swift in Sources */,
+				F976F0F32864B42400DF87AB /* HTTPHelpers.swift in Sources */,
 				F9610F2E2863D2E5002582D7 /* Endpoint.swift in Sources */,
 				F90A6F1128622C8D0037D2BB /* AppDelegate.swift in Sources */,
 				F9610F2C2863B820002582D7 /* HTTPClient.swift in Sources */,
 				F9610F302863D675002582D7 /* FeedType.swift in Sources */,
 				F9610F322863D873002582D7 /* FeedMapper.swift in Sources */,
 				F90A6F1328622C8D0037D2BB /* SceneDelegate.swift in Sources */,
-				F9610F2528637CB5002582D7 /* GenericResult.swift in Sources */,
+				F9610F2528637CB5002582D7 /* GenericResultDTO.swift in Sources */,
 				F9610F2128637BF7002582D7 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

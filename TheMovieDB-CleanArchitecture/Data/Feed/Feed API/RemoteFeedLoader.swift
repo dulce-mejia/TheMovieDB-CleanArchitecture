@@ -28,11 +28,10 @@ public final class RemoteFeedLoader: FeedLoader {
         
         guard let finalUrl = feedType.urlComponents?.url else { return }
         
-        client.get(from: finalUrl) { [weak self] result in
+        client.get(from: finalUrl) { result in
             switch result {
             case let .success((data, response)):
-                //TODO: map data into respective DTO and return result encoded
-                break
+                completion(FeedMapper.map(data, response))
             case .failure:
                 completion(.failure(Error.connectivity))
             }
