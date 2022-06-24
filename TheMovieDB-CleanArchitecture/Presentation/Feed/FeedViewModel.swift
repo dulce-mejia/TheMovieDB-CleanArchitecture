@@ -14,12 +14,18 @@ final class FeedViewModel {
     public let title = "The Movie DB"
 
     private let feedLoader: FeedLoader
+    private let imageLoader: ImageLoader
 
-    init(feedLoader: FeedLoader) {
+    var movies: [MovieViewModel] = []
+
+    init(feedLoader: FeedLoader,
+         imageLoader: ImageLoader) {
         self.feedLoader = feedLoader
+        self.imageLoader = imageLoader
     }
 
-    let sectionsAndMovies = BehaviorRelay<[FeedSectionViewModel]>(value: [])
+    public let listOfMovies = BehaviorRelay<[MovieViewModel]>(value: [])
+    private var sectionsAndMovies = BehaviorRelay<[FeedSectionViewModel]>(value: [])
 
     public func loadFeed() {
         let group = DispatchGroup()
@@ -31,6 +37,7 @@ final class FeedViewModel {
                     group.leave()
                     return
                 }
+
                 movies.append(FeedSectionViewModel(id: type.rawValue,
                                                    movies: feedForSection.results))
                 group.leave()
@@ -38,7 +45,15 @@ final class FeedViewModel {
         }
         group.notify(queue: .main) { [weak self] in
             movies.sort { $0.id > $1.id }
-            self?.sectionsAndMovies.accept(movies)
+            guard let self = self else { return }
+            self.sectionsAndMovies.accept(movies)
+
+            let viewModels = self.sectionsAndMovies.value
+                .flatMap({ $0.movies.map {
+                        MovieViewModel(movie: $0, imageLoader: self.imageLoader)
+                    }
+                })
+            self.listOfMovies.accept(viewModels)
         }
     }
 
@@ -49,6 +64,10 @@ final class FeedViewModel {
     func getMoviesBySection(section: Int) -> [Movie] {
         let section = sectionsAndMovies.value.first { $0.id == section }
         return section?.movies ?? []
+    }
+
+    func getMovieViewModel(by indexPath: IndexPath) -> MovieViewModel {
+        listOfMovies.value[indexPath.row]
     }
 
     func getMoviesCountBySection(section: Int) -> Int {

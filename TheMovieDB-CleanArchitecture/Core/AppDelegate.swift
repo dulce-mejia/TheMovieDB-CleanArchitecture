@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func loadFirstVC(httpClient: HTTPClient) -> UIViewController {
         let feedLoader = RemoteFeedLoader(client: httpClient)
-        let feedVC = FeedUIComposer.feedComposedWith(feedLoader: feedLoader)
+        let imageLoader = RemoteImageLoader(client: httpClient, cache: LocalImageCache())
+        let feedVC = FeedUIComposer.feedComposedWith(feedLoader: feedLoader, imageLoader: imageLoader)
         return UINavigationController(rootViewController: feedVC)
     }
 

@@ -46,8 +46,6 @@ final class MovieView: UICollectionViewCell {
         return stack
     }()
 
-    private var imageRequest: HTTPClientTask?
-
     var viewModel: MovieViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
@@ -85,15 +83,17 @@ final class MovieView: UICollectionViewCell {
 
     func configureViews(viewModel: MovieViewModel) {
         titleLabel.text = viewModel.title
-        guard let path = viewModel.posterUrl else { return }
-        // TODO: retrieve correct task for downloading images
-        // imageRequest = posterImageView.loadImage(with: path, size: .w342)
+        viewModel.onImageReceived = { [weak self] imageData in
+            DispatchQueue.main.async {
+                self?.posterImageView.image = UIImage(data: imageData)
+            }
+        }
+        viewModel.viewWillDisplay()
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = ""
         posterImageView.image = Constants.defaultImage
-        imageRequest?.cancel()
     }
 }

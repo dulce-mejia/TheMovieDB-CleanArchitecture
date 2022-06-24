@@ -8,23 +8,27 @@
 import Foundation
 
 public final class RemoteImageLoader: ImageLoader {
+
     public typealias Result = ImageLoader.Result
 
     let client: HTTPClient
     let cache: ImageCache
+    private let base = "https://image.tmdb.org/t/p/"
 
     public init(client: HTTPClient, cache: ImageCache) {
         self.client = client
         self.cache = cache
     }
 
-    public func load(url: URL, completion: @escaping (Result) -> Void) {
-        cache.load(url: url) { [weak self] result in
+    public func load(url: URL, with size: PosterSizes = .w185, completion: @escaping (Result) -> Void) {
+        let finalUrl = URL(string: base + size.rawValue + url.path)!
+
+        cache.load(url: finalUrl) { [weak self] result in
             switch result {
             case let .success(imageData):
                 completion(.success(imageData))
             case .failure:
-                self?.loadFromRemote(url: url, completion: completion)
+                self?.loadFromRemote(url: finalUrl, completion: completion)
             }
         }
     }

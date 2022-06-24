@@ -9,21 +9,35 @@ import Foundation
 
 final class MovieViewModel {
 
-    let movie: Movie
+    private let movie: Movie
+    private let imageLoader: ImageLoader
+    public var onImageReceived: ((Data) -> Void)?
 
-    init(movie: Movie) {
+    init(movie: Movie,
+         imageLoader: ImageLoader) {
         self.movie = movie
+        self.imageLoader = imageLoader
     }
 
     public var title: String {
         movie.title ?? ""
     }
 
-    public var posterUrl: URL? {
+    private var posterUrl: URL? {
         guard let path = movie.posterPath,
               let url = URL(string: path) else {
             return nil
         }
         return url
+    }
+
+    public func viewWillDisplay() {
+        guard let url = posterUrl else { return }
+        imageLoader.load(url: url, with: .w185) { [weak self] result in
+            guard let imageData = try? result.get() else {
+                return
+            }
+            self?.onImageReceived?(imageData)
+        }
     }
 }

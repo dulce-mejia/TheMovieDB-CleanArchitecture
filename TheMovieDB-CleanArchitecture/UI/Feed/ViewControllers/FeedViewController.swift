@@ -90,7 +90,7 @@ final class FeedViewController: UIViewController {
     }
 
     private func setupObservers() {
-        viewModel.sectionsAndMovies.asObservable()
+        viewModel.listOfMovies.asObservable()
             .subscribe { [weak self ] _ in
                 self?.movieFeedCollectionView.reloadData()
             }
@@ -118,7 +118,7 @@ extension FeedViewController: UICollectionViewDataSource {
             guard !moviesBySection.isEmpty else {
                 return UICollectionViewCell()
             }
-            cell.viewModel = MovieViewModel(movie: moviesBySection[indexPath.row])
+            cell.viewModel = viewModel.getMovieViewModel(by: indexPath)
         }
         return cell
     }

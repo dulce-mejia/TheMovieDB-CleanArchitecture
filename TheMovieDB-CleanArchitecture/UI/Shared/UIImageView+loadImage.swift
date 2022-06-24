@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 // TODO: PosterSizes enum put in correct group
-enum PosterSizes: String {
+public enum PosterSizes: String {
     case w92, w154, w185, w342, w500, w780, original
 }
 // TODO: complete loader for images

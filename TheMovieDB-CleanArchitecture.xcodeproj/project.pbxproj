@@ -30,6 +30,7 @@
 		F965F0C828661E1900494A30 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965F0C728661E1900494A30 /* ImageLoader.swift */; };
 		F965F0CA28661E7E00494A30 /* RemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965F0C928661E7E00494A30 /* RemoteImageLoader.swift */; };
 		F965F0CC286625A800494A30 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965F0CB286625A800494A30 /* ImageCache.swift */; };
+		F965F0CE286661B200494A30 /* LocalImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965F0CD286661B200494A30 /* LocalImageCache.swift */; };
 		F976F0F32864B42400DF87AB /* HTTPHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F22864B42400DF87AB /* HTTPHelpers.swift */; };
 		F976F0F62864D12300DF87AB /* GenericResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F52864D12300DF87AB /* GenericResult.swift */; };
 		F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F72864D9AF00DF87AB /* FeedViewController.swift */; };
@@ -95,6 +96,7 @@
 		F965F0C728661E1900494A30 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		F965F0C928661E7E00494A30 /* RemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageLoader.swift; sourceTree = "<group>"; };
 		F965F0CB286625A800494A30 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F965F0CD286661B200494A30 /* LocalImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageCache.swift; sourceTree = "<group>"; };
 		F976F0F22864B42400DF87AB /* HTTPHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHelpers.swift; sourceTree = "<group>"; };
 		F976F0F52864D12300DF87AB /* GenericResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResult.swift; sourceTree = "<group>"; };
 		F976F0F72864D9AF00DF87AB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				F976F0F22864B42400DF87AB /* HTTPHelpers.swift */,
 				F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */,
 				F965F0C928661E7E00494A30 /* RemoteImageLoader.swift */,
+				F965F0CD286661B200494A30 /* LocalImageCache.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -685,6 +688,7 @@
 				F976F1002864DD1D00DF87AB /* UIImageView+loadImage.swift in Sources */,
 				F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */,
 				F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */,
+				F965F0CE286661B200494A30 /* LocalImageCache.swift in Sources */,
 				F965F0CC286625A800494A30 /* ImageCache.swift in Sources */,
 				F976F1042864ED6900DF87AB /* MovieSectionViewModel.swift in Sources */,
 				F965F0C828661E1900494A30 /* ImageLoader.swift in Sources */,

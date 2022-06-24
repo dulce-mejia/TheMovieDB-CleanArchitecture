@@ -10,5 +10,5 @@ import Foundation
 public protocol ImageLoader {
     typealias Result = Swift.Result<Data, Error>
 
-    func load(url: URL, completion: @escaping (Result) -> Void)
+    func load(url: URL, with size: PosterSizes, completion: @escaping (Result) -> Void)
 }
