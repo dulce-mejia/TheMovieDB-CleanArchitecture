@@ -32,9 +32,9 @@ final class FeedMapper {
                   overview: overview)
         }
     }
-    
+
     static func map(_ data: Data, _ response: HTTPURLResponse) -> RemoteFeedLoader.Result {
-        
+
         guard response.isOK else {
             return .failure(RemoteFeedLoader.Error.invalidData)
         }

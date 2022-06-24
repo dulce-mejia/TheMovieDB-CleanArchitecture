@@ -30,13 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
     }
-    
+
     private func loadFirstVC(httpClient: HTTPClient) -> UIViewController {
         let feedLoader = RemoteFeedLoader(client: httpClient)
         let feedVC = FeedUIComposer.feedComposedWith(feedLoader: feedLoader)
         return UINavigationController(rootViewController: feedVC)
     }
-    
+
     private func makeURLSession() -> URLSession {
         URLSession(configuration: .default)
     }

@@ -15,15 +15,15 @@ extension Endpoint {
     private var base: String {
         "https://api.themoviedb.org"
     }
-    
+
     private var apiKey: String {
         "api_key"
     }
-    
+
     var apiKeyValue: String {
-        return "f6cd5c1a9e6c6b965fdcab0fa6ddd38a"
+        "f6cd5c1a9e6c6b965fdcab0fa6ddd38a"
     }
-    
+
     var urlComponents: URLComponents? {
         guard let components = URLComponents(string: base) else { return nil }
         var newComponents = components

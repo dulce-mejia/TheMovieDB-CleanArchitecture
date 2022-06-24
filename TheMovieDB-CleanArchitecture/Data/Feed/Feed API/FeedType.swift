@@ -13,7 +13,7 @@ public enum FeedType: Int, CaseIterable, Endpoint {
     case popular
     case topRated
     case upcoming
-    
+
     public var path: String {
         switch self {
         case .nowPlaying:
@@ -28,11 +28,11 @@ public enum FeedType: Int, CaseIterable, Endpoint {
             return "/3/movie/upcoming"
         }
     }
-    
+
     public var queryItems: [String: String] {
         ["language": "en", "region": "US", "page": "1"]
     }
-    
+
     var sectionTitle: String {
         switch self {
         case .nowPlaying:

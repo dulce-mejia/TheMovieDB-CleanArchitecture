@@ -9,7 +9,7 @@ import Foundation
 
 final class FeedUIComposer {
     private init() {}
-    
+
     public static func feedComposedWith(feedLoader: FeedLoader) -> FeedViewController {
         let viewModel = FeedViewModel(feedLoader: feedLoader)
         return FeedViewController(viewModel: viewModel)

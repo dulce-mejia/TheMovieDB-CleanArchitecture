@@ -19,7 +19,7 @@ final class MovieView: UICollectionViewCell {
         static let numberOfLines: Int = 0
         static let defaultImage = UIImage(systemName: "camera")
     }
-    
+
     private var posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,7 @@ final class MovieView: UICollectionViewCell {
         label.textAlignment = .center
         return label
     }()
-    
+
     private var stackContainer: UIStackView = {
         let stack = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -45,30 +45,30 @@ final class MovieView: UICollectionViewCell {
         stack.backgroundColor = .black.withAlphaComponent(Constants.stackAlpha)
         return stack
     }()
-    
+
     private var imageRequest: HTTPClientTask?
-    
+
     var viewModel: MovieViewModel? {
         didSet {
             guard let viewModel = viewModel else { return }
             configureViews(viewModel: viewModel)
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func setupUI() {
         contentView.addSubview(posterImageView)
         contentView.addSubview(stackContainer)
         stackContainer.addArrangedSubview(titleLabel)
-        
+
         NSLayoutConstraint.activate([
             posterImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             posterImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
@@ -82,14 +82,14 @@ final class MovieView: UICollectionViewCell {
         self.layer.cornerRadius = Constants.cornerRadius
         self.clipsToBounds = true
     }
-    
+
     func configureViews(viewModel: MovieViewModel) {
         titleLabel.text = viewModel.title
         guard let path = viewModel.posterUrl else { return }
-        //TODO: retrieve correct task for downloading images
+        // TODO: retrieve correct task for downloading images
         // imageRequest = posterImageView.loadImage(with: path, size: .w342)
     }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         titleLabel.text = ""

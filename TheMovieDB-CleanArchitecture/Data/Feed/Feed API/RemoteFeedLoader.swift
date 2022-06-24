@@ -9,9 +9,9 @@ import Foundation
 
 public final class RemoteFeedLoader: FeedLoader {
     public var queryItems: [String: String] = [:]
-    
+
     public typealias Result = FeedLoader.Result
-    
+
     public enum Error: Swift.Error {
         case connectivity
         case invalidData
@@ -25,9 +25,9 @@ public final class RemoteFeedLoader: FeedLoader {
     }
 
     public func load(_ feedType: FeedType, completion: @escaping (Result) -> Void) {
-        
+
         guard let finalUrl = feedType.urlComponents?.url else { return }
-        
+
         client.get(from: finalUrl) { result in
             switch result {
             case let .success((data, response)):

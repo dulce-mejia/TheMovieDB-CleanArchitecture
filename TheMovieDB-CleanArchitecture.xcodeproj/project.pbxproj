@@ -27,6 +27,9 @@
 		F9610F2E2863D2E5002582D7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F2D2863D2E5002582D7 /* Endpoint.swift */; };
 		F9610F302863D675002582D7 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F2F2863D675002582D7 /* FeedType.swift */; };
 		F9610F322863D873002582D7 /* FeedMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610F312863D873002582D7 /* FeedMapper.swift */; };
+		F965F0C828661E1900494A30 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965F0C728661E1900494A30 /* ImageLoader.swift */; };
+		F965F0CA28661E7E00494A30 /* RemoteImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965F0C928661E7E00494A30 /* RemoteImageLoader.swift */; };
+		F965F0CC286625A800494A30 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F965F0CB286625A800494A30 /* ImageCache.swift */; };
 		F976F0F32864B42400DF87AB /* HTTPHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F22864B42400DF87AB /* HTTPHelpers.swift */; };
 		F976F0F62864D12300DF87AB /* GenericResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F52864D12300DF87AB /* GenericResult.swift */; };
 		F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F0F72864D9AF00DF87AB /* FeedViewController.swift */; };
@@ -89,6 +92,9 @@
 		F9610F2D2863D2E5002582D7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F9610F2F2863D675002582D7 /* FeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		F9610F312863D873002582D7 /* FeedMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMapper.swift; sourceTree = "<group>"; };
+		F965F0C728661E1900494A30 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		F965F0C928661E7E00494A30 /* RemoteImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageLoader.swift; sourceTree = "<group>"; };
+		F965F0CB286625A800494A30 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F976F0F22864B42400DF87AB /* HTTPHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHelpers.swift; sourceTree = "<group>"; };
 		F976F0F52864D12300DF87AB /* GenericResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResult.swift; sourceTree = "<group>"; };
 		F976F0F72864D9AF00DF87AB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +346,7 @@
 				F9610F2D2863D2E5002582D7 /* Endpoint.swift */,
 				F976F0F22864B42400DF87AB /* HTTPHelpers.swift */,
 				F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */,
+				F965F0C928661E7E00494A30 /* RemoteImageLoader.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -358,6 +365,8 @@
 			isa = PBXGroup;
 			children = (
 				F976F0F52864D12300DF87AB /* GenericResult.swift */,
+				F965F0C728661E1900494A30 /* ImageLoader.swift */,
+				F965F0CB286625A800494A30 /* ImageCache.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -669,13 +678,16 @@
 				F976F0F62864D12300DF87AB /* GenericResult.swift in Sources */,
 				F93E33382862756E00A0CA2D /* OSLog+LogType.swift in Sources */,
 				F93E333A286275AE00A0CA2D /* UINavigationAppearance+defaultApperance.swift in Sources */,
+				F965F0CA28661E7E00494A30 /* RemoteImageLoader.swift in Sources */,
 				F976F0F32864B42400DF87AB /* HTTPHelpers.swift in Sources */,
 				F9610F2E2863D2E5002582D7 /* Endpoint.swift in Sources */,
 				F976F1022864E84100DF87AB /* MovieViewModel.swift in Sources */,
 				F976F1002864DD1D00DF87AB /* UIImageView+loadImage.swift in Sources */,
 				F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */,
 				F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */,
+				F965F0CC286625A800494A30 /* ImageCache.swift in Sources */,
 				F976F1042864ED6900DF87AB /* MovieSectionViewModel.swift in Sources */,
+				F965F0C828661E1900494A30 /* ImageLoader.swift in Sources */,
 				F90A6F1128622C8D0037D2BB /* AppDelegate.swift in Sources */,
 				F9610F2C2863B820002582D7 /* HTTPClient.swift in Sources */,
 				F976F1062864F07900DF87AB /* FeedViewModel.swift in Sources */,

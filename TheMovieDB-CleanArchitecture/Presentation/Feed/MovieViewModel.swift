@@ -10,15 +10,15 @@ import Foundation
 final class MovieViewModel {
 
     let movie: Movie
-    
+
     init(movie: Movie) {
         self.movie = movie
     }
-    
+
     public var title: String {
         movie.title ?? ""
     }
-    
+
     public var posterUrl: URL? {
         guard let path = movie.posterPath,
               let url = URL(string: path) else {

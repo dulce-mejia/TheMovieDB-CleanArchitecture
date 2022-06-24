@@ -10,17 +10,17 @@ import RxSwift
 import RxRelay
 
 final class FeedViewModel {
-    
+
     public let title = "The Movie DB"
-    
+
     private let feedLoader: FeedLoader
-    
+
     init(feedLoader: FeedLoader) {
         self.feedLoader = feedLoader
     }
-    
+
     let sectionsAndMovies = BehaviorRelay<[FeedSectionViewModel]>(value: [])
-    
+
     public func loadFeed() {
         let group = DispatchGroup()
         var movies: [FeedSectionViewModel] = []
@@ -41,17 +41,17 @@ final class FeedViewModel {
             self?.sectionsAndMovies.accept(movies)
         }
     }
-    
+
     func getSectionsCount() -> Int {
-        return sectionsAndMovies.value.count
+        sectionsAndMovies.value.count
     }
-    
+
     func getMoviesBySection(section: Int) -> [Movie] {
         let section = sectionsAndMovies.value.first { $0.id == section }
         return section?.movies ?? []
     }
-    
+
     func getMoviesCountBySection(section: Int) -> Int {
-        return sectionsAndMovies.value.first { $0.id == section}?.movies.count ?? 0
+        sectionsAndMovies.value.first { $0.id == section}?.movies.count ?? 0
     }
 }
