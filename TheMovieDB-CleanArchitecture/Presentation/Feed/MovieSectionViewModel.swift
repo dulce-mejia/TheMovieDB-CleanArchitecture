@@ -8,5 +8,5 @@
 import Foundation
 
 struct MovieSectionViewModel {
-    var title: String? = ""
+    var title: String
 }

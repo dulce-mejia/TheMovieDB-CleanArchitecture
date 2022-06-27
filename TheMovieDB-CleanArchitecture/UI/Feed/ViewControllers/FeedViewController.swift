@@ -129,6 +129,26 @@ extension FeedViewController: UICollectionViewDataSource {
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                           withReuseIdentifier: MovieSectionView.identifier,
+                                                                           for: indexPath) as? MovieSectionView
+        else {
+            return UICollectionReusableView()
+        }
+        header.viewModel = MovieSectionViewModel(title: sectionHeader(with: indexPath) ?? "Results")
+        return header
+    }
+
+    private func sectionHeader(with indexPath: IndexPath) -> String? {
+        guard let feedType = FeedType(rawValue: indexPath.section) else {
+            return nil
+        }
+        return feedType.sectionTitle
+    }
 }
 extension FeedViewController: UICollectionViewDelegate {
 
