@@ -14,6 +14,9 @@ final class FeedViewController: UIViewController {
 
     enum Constants {
         static let stackSpacing: CGFloat = 5
+        static let imageViewHeight: CGFloat = 160
+        static let imageViewWidth: CGFloat = 160 * 0.7
+        static let sectionHeaderHeight: CGFloat = 50
     }
 
     private var mainStackView: UIStackView = {
@@ -27,7 +30,7 @@ final class FeedViewController: UIViewController {
 
     private var movieFeedCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
-        collection.backgroundColor = .systemBlue
+        collection.backgroundColor = .clear
         return collection
     }()
 
@@ -78,7 +81,10 @@ final class FeedViewController: UIViewController {
     private func registerCellView() {
         let collectionFlowLayout = UICollectionViewFlowLayout()
         collectionFlowLayout.scrollDirection = .vertical
-        collectionFlowLayout.headerReferenceSize = CGSize(width: view.bounds.width, height: 50)
+        collectionFlowLayout.headerReferenceSize = CGSize(width: view.bounds.width,
+                                                          height: Constants.sectionHeaderHeight)
+        collectionFlowLayout.itemSize = CGSize(width: Constants.imageViewWidth,
+                                               height: Constants.imageViewHeight)
         movieFeedCollectionView.collectionViewLayout = collectionFlowLayout
 
         movieFeedCollectionView.register(MovieSectionView.self,
