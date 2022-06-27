@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol SimilarLoader {
-    typealias Result = Swift.Result<[Movie], Error>
+    typealias Result = Swift.Result<GenericResult<Movie>?, Error>
 
     func load(movieId: Int, completion: @escaping (Result) -> Void)
 }
