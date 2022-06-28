@@ -25,6 +25,10 @@ public final class DetailViewModel {
     public let recommendedSimilarObserver = BehaviorRelay<[MovieViewModel]>(value: [])
     public let poster = BehaviorSubject<Data?>(value: nil)
 
+    public enum SuggestionType: Int {
+        case similar = 0, recommended
+    }
+
     public init(viewModel: MovieViewModel,
                 castLoader: CastLoader,
                 similarLoader: SimilarLoader,
@@ -64,6 +68,15 @@ public final class DetailViewModel {
             guard let self = self else { return }
             self.castObserver.accept(self.map())
             self.recommendedSimilarObserver.accept(self.map(self.similar))
+        }
+    }
+
+    public func toggleSimilarRecommended(by selection: SuggestionType) {
+        switch selection {
+        case .similar:
+            self.recommendedSimilarObserver.accept(map(similar))
+        case .recommended:
+            self.recommendedSimilarObserver.accept(map(recommended))
         }
     }
 

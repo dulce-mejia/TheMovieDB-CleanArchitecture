@@ -218,6 +218,9 @@ final class DetailViewController: UIViewController {
         ])
         constrainstForScrollview()
         updateStackAxis(traitCollection: traitCollection)
+
+        titleLabel.text = viewModel.title
+        overviewLabel.text = viewModel.overview
     }
 
     private func registerCells() {
@@ -281,5 +284,19 @@ final class DetailViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+
+        moviesSegmented.addTarget(self, action: #selector(similarRecommendedAction(_:)), for: .valueChanged)
+        reviewsButton.addTarget(self, action: #selector(showReviews), for: .touchUpInside)
+    }
+
+    @objc private func showReviews() {
+
+    }
+
+    @objc func similarRecommendedAction(_ sender: UISegmentedControl) {
+        guard let type = DetailViewModel.SuggestionType(rawValue: sender.selectedSegmentIndex) else {
+            return
+        }
+        viewModel.toggleSimilarRecommended(by: type)
     }
 }
