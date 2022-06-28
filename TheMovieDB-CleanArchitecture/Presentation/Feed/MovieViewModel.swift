@@ -19,8 +19,16 @@ public final class MovieViewModel {
         self.imageLoader = imageLoader
     }
 
+    public var id: Int {
+        movie.id
+    }
+
     public var title: String {
         movie.title ?? ""
+    }
+
+    public var overview: String {
+        movie.overview ?? ""
     }
 
     private var posterUrl: URL? {

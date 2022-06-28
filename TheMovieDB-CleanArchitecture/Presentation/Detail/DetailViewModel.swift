@@ -11,7 +11,7 @@ import RxCocoa
 import os
 
 public final class DetailViewModel {
-    private let movie: Movie
+    public let movieViewModel: MovieViewModel
     private let castLoader: CastLoader
     private let similarLoader: SimilarLoader
     private let recommendedLoader: RecommendedLoader
@@ -21,15 +21,15 @@ public final class DetailViewModel {
     private var similar: [Movie] = []
     private var recommended: [Movie] = []
 
-    public let castObserver = BehaviorRelay<[Cast]>(value: [])
-    public let recommendedSimilarObserver = BehaviorRelay<[Movie]>(value: [])
+    public let castObserver = BehaviorRelay<[CastViewModel]>(value: [])
+    public let recommendedSimilarObserver = BehaviorRelay<[MovieViewModel]>(value: [])
 
-    public init(movie: Movie,
+    public init(viewModel: MovieViewModel,
                 castLoader: CastLoader,
                 similarLoader: SimilarLoader,
                 recommendedLoader: RecommendedLoader,
                 imageLoader: ImageLoader) {
-        self.movie = movie
+        self.movieViewModel = viewModel
         self.castLoader = castLoader
         self.similarLoader = similarLoader
         self.recommendedLoader = recommendedLoader
@@ -37,15 +37,11 @@ public final class DetailViewModel {
     }
 
     public var title: String? {
-        movie.title
+        movieViewModel.title
     }
 
     public var overview: String? {
-        movie.overview
-    }
-
-    public var movieViewModel: MovieViewModel {
-        MovieViewModel(movie: movie, imageLoader: imageLoader)
+        movieViewModel.overview
     }
 
     public func loadMovieDetail() {
@@ -64,13 +60,13 @@ public final class DetailViewModel {
         }
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            self.castObserver.accept(self.cast)
-            self.recommendedSimilarObserver.accept(self.similar)
+            self.castObserver.accept(self.map())
+            self.recommendedSimilarObserver.accept(self.map(self.similar))
         }
     }
 
     private func getCast(completion: @escaping () -> Void) {
-        castLoader.load(movieId: movie.id) { [weak self] result in
+        castLoader.load(movieId: movieViewModel.id) { [weak self] result in
             guard let cast = try? result.get() else {
                 completion()
                 return
@@ -81,7 +77,7 @@ public final class DetailViewModel {
     }
 
     private func getSimilar(completion: @escaping () -> Void) {
-        similarLoader.load(movieId: movie.id) { result in
+        similarLoader.load(movieId: movieViewModel.id) { result in
             guard let similar = try? result.get() else {
                 completion()
                 return
@@ -92,7 +88,7 @@ public final class DetailViewModel {
     }
 
     private func getRecommended(completion: @escaping () -> Void) {
-        recommendedLoader.load(movieId: movie.id) { result in
+        recommendedLoader.load(movieId: movieViewModel.id) { result in
             guard let recommended = try? result.get() else {
                 completion()
                 return
@@ -100,5 +96,13 @@ public final class DetailViewModel {
             self.recommended = recommended.results
             completion()
         }
+    }
+
+    private func map() -> [CastViewModel] {
+        cast.map { CastViewModel(cast: $0, imageLoader: imageLoader) }
+    }
+
+    private func map(_ list: [Movie]) -> [MovieViewModel] {
+        list.map { MovieViewModel(movie: $0, imageLoader: imageLoader) }
     }
 }

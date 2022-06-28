@@ -36,6 +36,8 @@ final class DetailViewController: UIViewController {
         static let castViewWidth: CGFloat = 70 * 1.5
         static let imageViewHeight: CGFloat = 160
         static let imageViewWidth: CGFloat = 160 * 0.7
+        static let MovieCellHeight: CGFloat = 175.0
+        static let ReviewHeight: CGFloat = 60.0
     }
 
     // Views
@@ -166,22 +168,110 @@ final class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        setupObservers()
+        registerCells()
         viewModel.loadMovieDetail()
+    }
+
+    private func setupUI() {
+        self.view.backgroundColor = .clear
+        view.addSubview(stackContainer)
+        stackContainer.addArrangedSubview(view1)
+        stackContainer.addArrangedSubview(view2)
+        // Setting view1
+        view1.addSubview(posterImageView)
+        view1.addSubview(titleLabel)
+        view1.addSubview(reviewsButton)
+        // Setting view2
+        view2.addSubview(detailsScrollView)
+        detailsScrollView.addSubview(scrollChildFirstStackContainer)
+        scrollChildFirstStackContainer.addArrangedSubview(stackContainerScrollView)
+        // Setting scroll content
+        stackContainerScrollView.addArrangedSubview(overviewTitleLabel)
+        stackContainerScrollView.addArrangedSubview(overviewLabel)
+        stackContainerScrollView.addArrangedSubview(castTitleLabel)
+        stackContainerScrollView.addArrangedSubview(castCollectionView)
+        stackContainerScrollView.addArrangedSubview(moviesSegmented)
+        stackContainerScrollView.addArrangedSubview(recommendedSimilarCollectionView)
+        // Set Constraints
+        NSLayoutConstraint.activate([
+            stackContainer.topAnchor.constraint(equalTo: view.topAnchor),
+            stackContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stackContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            // Poster
+            posterImageView.topAnchor.constraint(equalTo: view1.topAnchor),
+            posterImageView.bottomAnchor.constraint(equalTo: view1.bottomAnchor),
+            posterImageView.leadingAnchor.constraint(equalTo: view1.leadingAnchor),
+            posterImageView.trailingAnchor.constraint(equalTo: view1.trailingAnchor),
+            // Title
+            titleLabel.bottomAnchor.constraint(equalTo: view1.bottomAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: view1.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view1.trailingAnchor),
+            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 80),
+            // Review button
+            reviewsButton.heightAnchor.constraint(equalToConstant: Constants.ReviewHeight),
+            reviewsButton.widthAnchor.constraint(equalToConstant: Constants.ReviewHeight),
+            reviewsButton.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -30),
+            reviewsButton.trailingAnchor.constraint(equalTo: view1.trailingAnchor, constant: -25)
+        ])
+        constrainstForScrollview()
+        updateStackAxis(traitCollection: traitCollection)
+    }
+
+    private func registerCells() {
+        castCollectionView.register(CastView.self, forCellWithReuseIdentifier: CastView.reusableIdentifier)
+        recommendedSimilarCollectionView.register(MovieView.self, forCellWithReuseIdentifier: MovieView.reusableIdentifier)
+    }
+
+    private func constrainstForScrollview() {
+        NSLayoutConstraint.activate([
+            // DetailScrollView
+            detailsScrollView.topAnchor.constraint(equalTo: view2.topAnchor),
+            detailsScrollView.bottomAnchor.constraint(equalTo: view2.bottomAnchor),
+            detailsScrollView.trailingAnchor.constraint(equalTo: view2.trailingAnchor),
+            detailsScrollView.leadingAnchor.constraint(equalTo: view2.leadingAnchor),
+            // firstStackContainer scrollview
+            scrollChildFirstStackContainer.topAnchor.constraint(equalTo: detailsScrollView.contentLayoutGuide.topAnchor),
+            scrollChildFirstStackContainer.bottomAnchor.constraint(equalTo: detailsScrollView.contentLayoutGuide.bottomAnchor),
+            scrollChildFirstStackContainer.leadingAnchor.constraint(equalTo: detailsScrollView.contentLayoutGuide.leadingAnchor),
+            scrollChildFirstStackContainer.trailingAnchor.constraint(equalTo: detailsScrollView.contentLayoutGuide.trailingAnchor),
+            scrollChildFirstStackContainer.widthAnchor.constraint(equalTo: view2.widthAnchor),
+            // stack container scrollView
+            stackContainerScrollView.trailingAnchor.constraint(equalTo: scrollChildFirstStackContainer.trailingAnchor, constant: -10),
+            stackContainerScrollView.leadingAnchor.constraint(equalTo: scrollChildFirstStackContainer.leadingAnchor, constant: 10),
+            // cast collection
+            castCollectionView.heightAnchor.constraint(equalToConstant: 80),
+            // recommended collection
+            recommendedSimilarCollectionView.heightAnchor.constraint(equalToConstant: Constants.MovieCellHeight),
+            // segmented
+            moviesSegmented.heightAnchor.constraint(equalToConstant: 44)
+            ])
+    }
+
+    private func updateStackAxis(traitCollection: UITraitCollection?) {
+        switch (traitCollection?.horizontalSizeClass, traitCollection?.verticalSizeClass) {
+        case (.compact, .compact), (.regular, .compact):
+            stackContainer.axis = .horizontal
+        default:
+            stackContainer.axis = .vertical
+        }
     }
 
     private func setupObservers() {
         viewModel.recommendedSimilarObserver
             .bind(to: recommendedSimilarCollectionView.rx.items(cellIdentifier: MovieView.reusableIdentifier,
-                                                                cellType: MovieView.self)) { [weak self] _, _, cell in
-                cell.viewModel = self?.viewModel.movieViewModel
+                                                                cellType: MovieView.self)) { _, viewModel, cell in
+                cell.viewModel = viewModel
             }
             .disposed(by: disposeBag)
 
-//        viewModel.castObserver
-//            .bind(to: castCollectionView.rx.items(cellIdentifier: CastView.reusableIdentifier,
-//                                                  cellType: CastView.self)) { [weak self] _, _, cell in
-//                
-//            }
-//            .disposed(by: disposeBag)
+        viewModel.castObserver
+            .bind(to: castCollectionView.rx.items(cellIdentifier: CastView.reusableIdentifier,
+                                                  cellType: CastView.self)) { _, viewModel, cell in
+                cell.viewModel = viewModel
+            }
+            .disposed(by: disposeBag)
     }
 }

@@ -27,15 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupRootViewController(_ rootViewController: UIViewController) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.overrideUserInterfaceStyle = .dark
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
     }
 
     private func loadFirstVC(httpClient: HTTPClient) -> UIViewController {
-        let feedLoader = RemoteFeedLoader(client: httpClient)
-        let imageLoader = RemoteImageLoader(client: httpClient, cache: LocalImageCache())
-        let feedVC = FeedUIComposer.feedComposedWith(feedLoader: feedLoader, imageLoader: imageLoader)
-        return UINavigationController(rootViewController: feedVC)
+        let navController = UINavigationController()
+        let feedVC = FeedUIComposer.feedComposedWith(httpClient: httpClient,
+                                                     navController: navController)
+        navController.viewControllers = [feedVC]
+        return navController
     }
 
     private func makeURLSession() -> URLSession {

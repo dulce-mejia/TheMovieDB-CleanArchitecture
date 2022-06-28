@@ -36,6 +36,7 @@ final class FeedViewController: UIViewController {
 
     private let viewModel: FeedViewModel
     private let disposeBag = DisposeBag()
+    public var onSelectedMovie: ((MovieViewModel) -> Void)?
 
     init(viewModel: FeedViewModel) {
         self.viewModel = viewModel
@@ -151,5 +152,8 @@ extension FeedViewController: UICollectionViewDataSource {
     }
 }
 extension FeedViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedMovieViewModel = viewModel.getMovieViewModel(by: indexPath)
+        onSelectedMovie?(selectedMovieViewModel)
+    }
 }

@@ -8,17 +8,18 @@
 import Foundation
 
 final class DetailUIComposer {
-    public static func detailComposedWith(movie: Movie,
+    public static func detailComposedWith(movieViewModel: MovieViewModel,
                                           castLoader: CastLoader,
                                           similarLoader: SimilarLoader,
                                           recommendedLoader: RecommendedLoader,
                                           imageLoader: ImageLoader) -> DetailViewController {
-        
-        let viewModel = DetailViewModel(movie: movie,
+
+        let viewModel = DetailViewModel(viewModel: movieViewModel,
                                         castLoader: castLoader,
                                         similarLoader: similarLoader,
                                         recommendedLoader: recommendedLoader,
                                         imageLoader: imageLoader)
-        return DetailViewController(viewModel: viewModel)
+        let detailVC = DetailViewController(viewModel: viewModel)
+        return detailVC
     }
 }

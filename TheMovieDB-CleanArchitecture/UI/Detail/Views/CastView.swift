@@ -89,7 +89,13 @@ public final class CastView: UICollectionViewCell {
     }
 
     func configure(viewModel: CastViewModel) {
+        var viewModel = viewModel
         nameLabelView.text = viewModel.cast.name
-        guard let path = viewModel.cast.profilePath else { return }
+        viewModel.onImageReceived = { imageData in
+            DispatchQueue.main.async {
+                self.photoImageView.image = UIImage(data: imageData)
+            }
+        }
+        viewModel.viewWillDisplay()
     }
 }
