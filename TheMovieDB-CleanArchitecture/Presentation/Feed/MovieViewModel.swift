@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MovieViewModel {
+public final class MovieViewModel {
 
     private let movie: Movie
     private let imageLoader: ImageLoader
