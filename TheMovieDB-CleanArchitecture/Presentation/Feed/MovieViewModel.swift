@@ -39,9 +39,9 @@ public final class MovieViewModel {
         return url
     }
 
-    public func viewWillDisplay() {
+    public func viewWillDisplay(with size: PosterSizes = .w185) {
         guard let url = posterUrl else { return }
-        imageLoader.load(url: url, with: .w185) { [weak self] result in
+        imageLoader.load(url: url, with: size) { [weak self] result in
             guard let imageData = try? result.get() else {
                 return
             }

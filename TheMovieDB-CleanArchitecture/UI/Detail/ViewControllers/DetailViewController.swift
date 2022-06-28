@@ -273,5 +273,13 @@ final class DetailViewController: UIViewController {
                 cell.viewModel = viewModel
             }
             .disposed(by: disposeBag)
+        viewModel.poster.asObservable()
+            .subscribe(onNext: { [weak self] imageData in
+                guard let data = imageData else { return }
+                DispatchQueue.main.async {
+                    self?.posterImageView.image = UIImage(data: data)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }

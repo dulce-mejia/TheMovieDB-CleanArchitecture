@@ -23,6 +23,7 @@ public final class DetailViewModel {
 
     public let castObserver = BehaviorRelay<[CastViewModel]>(value: [])
     public let recommendedSimilarObserver = BehaviorRelay<[MovieViewModel]>(value: [])
+    public let poster = BehaviorSubject<Data?>(value: nil)
 
     public init(viewModel: MovieViewModel,
                 castLoader: CastLoader,
@@ -45,6 +46,7 @@ public final class DetailViewModel {
     }
 
     public func loadMovieDetail() {
+        loadPoster()
         let group = DispatchGroup()
         group.enter()
         getCast {
@@ -63,6 +65,13 @@ public final class DetailViewModel {
             self.castObserver.accept(self.map())
             self.recommendedSimilarObserver.accept(self.map(self.similar))
         }
+    }
+
+    private func loadPoster() {
+        movieViewModel.onImageReceived = { [weak self] imageData in
+            self?.poster.onNext(imageData)
+        }
+        movieViewModel.viewWillDisplay(with: .w500)
     }
 
     private func getCast(completion: @escaping () -> Void) {
