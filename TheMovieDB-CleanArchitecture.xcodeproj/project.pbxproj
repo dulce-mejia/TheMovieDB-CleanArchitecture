@@ -60,6 +60,7 @@
 		F981E388286CB70500EC4DDD /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E387286CB70500EC4DDD /* Review.swift */; };
 		F981E38A286CB75600EC4DDD /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E389286CB75600EC4DDD /* Author.swift */; };
 		F981E38D286CB7E000EC4DDD /* ReviewsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */; };
+		F981E391286CC36A00EC4DDD /* ReviewsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */; };
 		F9BDF9C8286B6C7800F5AB2D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9C7286B6C7800F5AB2D /* DetailViewModel.swift */; };
 		F9BDF9CB286B7FCA00F5AB2D /* CastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9CA286B7FCA00F5AB2D /* CastView.swift */; };
 		F9BDF9CD286B817F00F5AB2D /* CastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9CC286B817F00F5AB2D /* CastViewModel.swift */; };
@@ -147,6 +148,7 @@
 		F981E387286CB70500EC4DDD /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		F981E389286CB75600EC4DDD /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLoader.swift; sourceTree = "<group>"; };
+		F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsEndpoint.swift; sourceTree = "<group>"; };
 		F9BDF9C7286B6C7800F5AB2D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F9BDF9CA286B7FCA00F5AB2D /* CastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastView.swift; sourceTree = "<group>"; };
 		F9BDF9CC286B817F00F5AB2D /* CastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewModel.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				F9610F2328637C9E002582D7 /* Shared */,
 				F9610F1D2863741C002582D7 /* Feed */,
 				F9675DFF286A53C1007E4A9A /* Detail */,
+				F981E38E286CC33400EC4DDD /* Reviews */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -574,6 +577,22 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		F981E38E286CC33400EC4DDD /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				F981E38F286CC34600EC4DDD /* Reviews API */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		F981E38F286CC34600EC4DDD /* Reviews API */ = {
+			isa = PBXGroup;
+			children = (
+				F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */,
+			);
+			path = "Reviews API";
+			sourceTree = "<group>";
+		};
 		F9BDF9C9286B7EEA00F5AB2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -869,6 +888,7 @@
 				F93E33382862756E00A0CA2D /* OSLog+LogType.swift in Sources */,
 				F93E333A286275AE00A0CA2D /* UINavigationAppearance+defaultApperance.swift in Sources */,
 				F9675E15286A65F7007E4A9A /* RecommendedMapper.swift in Sources */,
+				F981E391286CC36A00EC4DDD /* ReviewsEndpoint.swift in Sources */,
 				F9675E1C286A6D7A007E4A9A /* DetailViewController.swift in Sources */,
 				F965F0CA28661E7E00494A30 /* RemoteImageLoader.swift in Sources */,
 				F9675DFC286A4A57007E4A9A /* SimilarLoader.swift in Sources */,

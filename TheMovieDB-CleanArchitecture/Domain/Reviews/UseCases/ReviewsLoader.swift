@@ -9,6 +9,6 @@ import Foundation
 
 public protocol ReviewsLoader {
     typealias Result = Swift.Result<GenericResult<Review>?, Error>
-    
+
     func load(movieId: Int, completion: @escaping (Result) -> Void)
 }
