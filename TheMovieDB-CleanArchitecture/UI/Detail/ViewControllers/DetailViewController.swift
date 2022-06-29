@@ -30,14 +30,20 @@ final class DetailViewController: UIViewController {
         static let fontSize_title: CGFloat = 18
         static let fontSize_body: CGFloat = 18
         static let alpha: CGFloat = 0.5
-        static let cornerRadius: CGFloat = 5
         static let stackSpacing: CGFloat = 4
+        static let stackMargin: CGFloat = 10
         static let castViewHeight: CGFloat = 70
         static let castViewWidth: CGFloat = 70 * 1.5
+        static let castCollectionHeight: CGFloat = 80
         static let imageViewHeight: CGFloat = 160
         static let imageViewWidth: CGFloat = 160 * 0.7
-        static let MovieCellHeight: CGFloat = 175.0
-        static let ReviewHeight: CGFloat = 60.0
+        static let movieCellHeight: CGFloat = 175.0
+        static let reviewHeight: CGFloat = 60.0
+        static let cornerRadius: CGFloat = reviewHeight / 2
+        static let segmentedHeight: CGFloat = 44
+        static let titleViewHeight: CGFloat = 80
+        static let reviewButtonTopMargin: CGFloat = -30
+        static let reviewButtonTrailingMargin: CGFloat = -25
     }
 
     // Views
@@ -114,7 +120,7 @@ final class DetailViewController: UIViewController {
     }()
     private var overviewLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         label.font = UIFont.systemFont(ofSize: Constants.fontSize_body)
         return label
     }()
@@ -149,7 +155,7 @@ final class DetailViewController: UIViewController {
     private var moviesSegmented: UISegmentedControl = {
         let items = ["Similar", "Recommended"]
         let segmented = UISegmentedControl(items: items)
-        segmented.selectedSegmentIndex = 0
+        segmented.selectedSegmentIndex = .zero
         segmented.selectedSegmentTintColor = .systemBlue
         return segmented
     }()
@@ -209,12 +215,14 @@ final class DetailViewController: UIViewController {
             titleLabel.bottomAnchor.constraint(equalTo: view1.bottomAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view1.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: view1.trailingAnchor),
-            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 80),
+            titleLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.titleViewHeight),
             // Review button
-            reviewsButton.heightAnchor.constraint(equalToConstant: Constants.ReviewHeight),
-            reviewsButton.widthAnchor.constraint(equalToConstant: Constants.ReviewHeight),
-            reviewsButton.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -30),
-            reviewsButton.trailingAnchor.constraint(equalTo: view1.trailingAnchor, constant: -25)
+            reviewsButton.heightAnchor.constraint(equalToConstant: Constants.reviewHeight),
+            reviewsButton.widthAnchor.constraint(equalToConstant: Constants.reviewHeight),
+            reviewsButton.topAnchor.constraint(equalTo: titleLabel.topAnchor,
+                                               constant: Constants.reviewButtonTopMargin),
+            reviewsButton.trailingAnchor.constraint(equalTo: view1.trailingAnchor,
+                                                    constant: Constants.reviewButtonTrailingMargin)
         ])
         constrainstForScrollview()
         updateStackAxis(traitCollection: traitCollection)
@@ -242,14 +250,16 @@ final class DetailViewController: UIViewController {
             scrollChildFirstStackContainer.trailingAnchor.constraint(equalTo: detailsScrollView.contentLayoutGuide.trailingAnchor),
             scrollChildFirstStackContainer.widthAnchor.constraint(equalTo: view2.widthAnchor),
             // stack container scrollView
-            stackContainerScrollView.trailingAnchor.constraint(equalTo: scrollChildFirstStackContainer.trailingAnchor, constant: -10),
-            stackContainerScrollView.leadingAnchor.constraint(equalTo: scrollChildFirstStackContainer.leadingAnchor, constant: 10),
+            stackContainerScrollView.trailingAnchor.constraint(equalTo: scrollChildFirstStackContainer.trailingAnchor,
+                                                               constant: -Constants.stackMargin),
+            stackContainerScrollView.leadingAnchor.constraint(equalTo: scrollChildFirstStackContainer.leadingAnchor,
+                                                              constant: Constants.stackMargin),
             // cast collection
-            castCollectionView.heightAnchor.constraint(equalToConstant: 80),
+            castCollectionView.heightAnchor.constraint(equalToConstant: Constants.castCollectionHeight),
             // recommended collection
-            recommendedSimilarCollectionView.heightAnchor.constraint(equalToConstant: Constants.MovieCellHeight),
+            recommendedSimilarCollectionView.heightAnchor.constraint(equalToConstant: Constants.movieCellHeight),
             // segmented
-            moviesSegmented.heightAnchor.constraint(equalToConstant: 44)
+            moviesSegmented.heightAnchor.constraint(equalToConstant: Constants.segmentedHeight)
             ])
     }
 
