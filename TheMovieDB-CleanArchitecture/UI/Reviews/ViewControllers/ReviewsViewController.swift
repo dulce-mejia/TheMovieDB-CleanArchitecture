@@ -15,16 +15,25 @@ struct ReviewsViewController: View {
         self.viewModel = viewModel
     }
 
+    enum Constants {
+        static let padding: CGFloat = 5
+    }
+
     var body: some View {
         VStack {
             List($viewModel.reviews, id: \.id) { review in
                 ReviewCellView(review: review)
             }
             .alert(isPresented: $viewModel.showNoContentMsg) {
-                Alert(title: Text("Error"), message: Text("No reviews yet!"), dismissButton: .default(Text("OK")))
+                Alert(title: Text(viewModel.alertTitle),
+                      message: Text(viewModel.alertMsg),
+                      dismissButton: .default(Text(viewModel.alertOk)))
             }
             .navigationTitle(viewModel.title)
         }
-        .padding(5)
+        .onAppear(perform: {
+            viewModel.loadReviews()
+        })
+        .padding(Constants.padding)
     }
 }

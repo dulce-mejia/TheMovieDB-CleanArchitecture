@@ -11,21 +11,43 @@ import Foundation
 
 final class ReviewViewModel: ObservableObject {
     private let reviewsLoader: ReviewsLoader
-    private let movie: Movie
+    private let movieViewModel: MovieViewModel
     @Published var reviews: [Review] = []
     @Published var showNoContentMsg: Bool = false
 
-    public var title: String {
-        movie.title ?? ""
+    enum Strings: String {
+        case alertOk = "OK"
+        case alertTitle = "Error"
+        case alertMsg = "No reviews yet!"
+
+        var localized: String {
+            NSLocalizedString(self.rawValue, comment: "")
+        }
     }
 
-    init(reviewsLoader: ReviewsLoader, movie: Movie) {
-        self.movie = movie
+    init(reviewsLoader: ReviewsLoader, movieViewModel: MovieViewModel) {
+        self.movieViewModel = movieViewModel
         self.reviewsLoader = reviewsLoader
     }
 
-    private func loadReviews() {
-        reviewsLoader.load(movieId: movie.id) { [weak self] result in
+    public var title: String {
+        movieViewModel.title
+    }
+
+    public var alertOk: String {
+        Strings.alertOk.rawValue
+    }
+
+    public var alertTitle: String {
+        Strings.alertTitle.rawValue
+    }
+
+    public var alertMsg: String {
+        Strings.alertMsg.rawValue
+    }
+
+    public func loadReviews() {
+        reviewsLoader.load(movieId: movieViewModel.id) { [weak self] result in
             guard let reviews = try? result.get() else {
                 // TODO: add logs 
                 // os_log("Error: %@", log: .apiError, type: .error, error.localizedDescription)

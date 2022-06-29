@@ -9,9 +9,9 @@ import Foundation
 
 final class ReviewsUIComposer {
     public static func composedWith(reviewsLoader: ReviewsLoader,
-                                    movie: Movie) -> ReviewsViewController {
+                                    movieViewModel: MovieViewModel) -> ReviewsViewController {
         let viewModel = ReviewViewModel(reviewsLoader: reviewsLoader,
-                                        movie: movie)
+                                        movieViewModel: movieViewModel)
         return ReviewsViewController(viewModel: viewModel)
     }
 }
