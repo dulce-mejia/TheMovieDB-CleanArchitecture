@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MovieViewModel {
+public final class MovieViewModel {
 
     private let movie: Movie
     private let imageLoader: ImageLoader
@@ -19,8 +19,16 @@ final class MovieViewModel {
         self.imageLoader = imageLoader
     }
 
+    public var id: Int {
+        movie.id
+    }
+
     public var title: String {
         movie.title ?? ""
+    }
+
+    public var overview: String {
+        movie.overview ?? ""
     }
 
     private var posterUrl: URL? {
@@ -31,9 +39,9 @@ final class MovieViewModel {
         return url
     }
 
-    public func viewWillDisplay() {
+    public func viewWillDisplay(with size: PosterSizes = .w185) {
         guard let url = posterUrl else { return }
-        imageLoader.load(url: url, with: .w185) { [weak self] result in
+        imageLoader.load(url: url, with: size) { [weak self] result in
             guard let imageData = try? result.get() else {
                 return
             }
