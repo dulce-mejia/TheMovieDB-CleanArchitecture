@@ -61,6 +61,8 @@
 		F981E38A286CB75600EC4DDD /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E389286CB75600EC4DDD /* Author.swift */; };
 		F981E38D286CB7E000EC4DDD /* ReviewsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */; };
 		F981E391286CC36A00EC4DDD /* ReviewsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */; };
+		F981E393286CC62000EC4DDD /* ReviewsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E392286CC62000EC4DDD /* ReviewsMapper.swift */; };
+		F981E395286CC81300EC4DDD /* RemoteReviewsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E394286CC81300EC4DDD /* RemoteReviewsLoader.swift */; };
 		F9BDF9C8286B6C7800F5AB2D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9C7286B6C7800F5AB2D /* DetailViewModel.swift */; };
 		F9BDF9CB286B7FCA00F5AB2D /* CastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9CA286B7FCA00F5AB2D /* CastView.swift */; };
 		F9BDF9CD286B817F00F5AB2D /* CastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9CC286B817F00F5AB2D /* CastViewModel.swift */; };
@@ -149,6 +151,8 @@
 		F981E389286CB75600EC4DDD /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLoader.swift; sourceTree = "<group>"; };
 		F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsEndpoint.swift; sourceTree = "<group>"; };
+		F981E392286CC62000EC4DDD /* ReviewsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsMapper.swift; sourceTree = "<group>"; };
+		F981E394286CC81300EC4DDD /* RemoteReviewsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteReviewsLoader.swift; sourceTree = "<group>"; };
 		F9BDF9C7286B6C7800F5AB2D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F9BDF9CA286B7FCA00F5AB2D /* CastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastView.swift; sourceTree = "<group>"; };
 		F9BDF9CC286B817F00F5AB2D /* CastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewModel.swift; sourceTree = "<group>"; };
@@ -589,6 +593,8 @@
 			isa = PBXGroup;
 			children = (
 				F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */,
+				F981E392286CC62000EC4DDD /* ReviewsMapper.swift */,
+				F981E394286CC81300EC4DDD /* RemoteReviewsLoader.swift */,
 			);
 			path = "Reviews API";
 			sourceTree = "<group>";
@@ -906,6 +912,7 @@
 				F9675E17286A6623007E4A9A /* RemoteRecommendedLoader.swift in Sources */,
 				F976F1042864ED6900DF87AB /* MovieSectionViewModel.swift in Sources */,
 				F9675E11286A6397007E4A9A /* SimilarMapper.swift in Sources */,
+				F981E393286CC62000EC4DDD /* ReviewsMapper.swift in Sources */,
 				F9BDF9CF286B9A7500F5AB2D /* DetailUIComposer.swift in Sources */,
 				F9675E0D286A5F93007E4A9A /* SimilarEndpoint.swift in Sources */,
 				F9675E13286A6487007E4A9A /* RemoteSimilarLoader.swift in Sources */,
@@ -925,6 +932,7 @@
 				F976F0FE2864DC7F00DF87AB /* MovieView.swift in Sources */,
 				F9BDF9CB286B7FCA00F5AB2D /* CastView.swift in Sources */,
 				F9675E04286A540F007E4A9A /* RemoteCastLoader.swift in Sources */,
+				F981E395286CC81300EC4DDD /* RemoteReviewsLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
