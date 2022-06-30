@@ -7,6 +7,11 @@
 */
 //Feed
 "FEED_TITLE"="Películas DB";
+"SECTION_NOW_PLAYING"="En cines";
+"SECTION_TRENDING"="Tendencias";
+"SECTION_POPULAR"="Popular";
+"SECTION_TOP_RATED"="Mejor Valoradas";
+"SECTION_UPCOMING"="Próximamente";
 //Detail
 "OVERVIEW"="Sinopsis";
 "CAST"="Reparto";

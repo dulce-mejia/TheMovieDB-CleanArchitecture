@@ -141,14 +141,15 @@ extension FeedViewController: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
         header.viewModel = MovieSectionViewModel(title: sectionHeader(with: indexPath) ?? "Results")
+        
         return header
     }
 
     private func sectionHeader(with indexPath: IndexPath) -> String? {
-        guard let feedType = FeedType(rawValue: indexPath.section) else {
+        guard let section = viewModel.getFeedSection(by: indexPath) else {
             return nil
         }
-        return feedType.sectionTitle
+        return section.title
     }
 }
 extension FeedViewController: UICollectionViewDelegate {

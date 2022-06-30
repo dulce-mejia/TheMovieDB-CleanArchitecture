@@ -8,6 +8,7 @@
 import Foundation
 
 public enum FeedType: Int, CaseIterable, Endpoint {
+
     case nowPlaying
     case trending
     case popular
@@ -26,25 +27,6 @@ public enum FeedType: Int, CaseIterable, Endpoint {
             return "/3/movie/top_rated"
         case .upcoming:
             return "/3/movie/upcoming"
-        }
-    }
-
-    public var queryItems: [String: String] {
-        ["language": "en", "region": "US", "page": "1"]
-    }
-
-    var sectionTitle: String {
-        switch self {
-        case .nowPlaying:
-            return "Now Playing"
-        case .trending:
-            return "Trending"
-        case .popular:
-            return "Popular"
-        case .topRated:
-            return "Top Rated"
-        case .upcoming:
-            return "Upcoming"
         }
     }
 }

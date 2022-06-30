@@ -9,13 +9,41 @@ import Foundation
 import RxSwift
 import RxRelay
 
-final class FeedViewModel {
+public final class FeedViewModel {
 
-    enum Strings: String {
+    public enum Strings: String {
         case title = "FEED_TITLE"
+        case nowPlaying = "SECTION_NOW_PLAYING"
+        case trending = "SECTION_TRENDING"
+        case popular = "SECTION_POPULAR"
+        case topRated = "SECTION_TOP_RATED"
+        case upcoming = "SECTION_UPCOMING"
 
         var localized: String {
             NSLocalizedString(self.rawValue, comment: "")
+        }
+    }
+
+    public enum FeedSection: Int {
+        case nowPlaying
+        case trending
+        case popular
+        case topRated
+        case upcoming
+
+        var title: String {
+            switch self {
+            case .nowPlaying:
+                return Strings.nowPlaying.localized
+            case .trending:
+                return Strings.trending.localized
+            case .popular:
+                return Strings.popular.localized
+            case .topRated:
+                return Strings.topRated.localized
+            case .upcoming:
+                return Strings.upcoming.localized
+            }
         }
     }
 
@@ -38,21 +66,22 @@ final class FeedViewModel {
     public func loadFeed() {
         let group = DispatchGroup()
         var movies: [FeedSectionViewModel] = []
-        FeedType.allCases.forEach { type in
+        FeedType.allCases.forEach { [weak self] type in
             group.enter()
             feedLoader.load(type) { result in
+                guard let self = self else { return }
                 guard let feedForSection = try? result.get() else {
                     group.leave()
                     return
                 }
 
-                movies.append(FeedSectionViewModel(id: type.rawValue,
+                movies.append(FeedSectionViewModel(section: self.getSection(type),
                                                    movies: feedForSection.results))
                 group.leave()
             }
         }
         group.notify(queue: .main) { [weak self] in
-            movies.sort { $0.id > $1.id }
+            movies.sort { $0.section.rawValue < $1.section.rawValue }
             guard let self = self else { return }
             self.sectionsAndMovies.accept(movies)
 
@@ -65,12 +94,35 @@ final class FeedViewModel {
         }
     }
 
+    private func getSection(_ section: FeedType) -> FeedSection {
+        switch section {
+        case .nowPlaying:
+            return .nowPlaying
+        case .trending:
+            return .trending
+        case .popular:
+            return .popular
+        case .topRated:
+            return .topRated
+        case .upcoming:
+            return .upcoming
+        }
+    }
+
     func getSectionsCount() -> Int {
         sectionsAndMovies.value.count
     }
 
+    func getFeedSection(by indexPath: IndexPath) -> FeedSection? {
+        guard indexPath.section <= sectionsAndMovies.value.count else {
+            return nil
+        }
+        let feedSection = sectionsAndMovies.value[indexPath.section]
+        return feedSection.section
+    }
+
     func getMoviesBySection(section: Int) -> [Movie] {
-        let section = sectionsAndMovies.value.first { $0.id == section }
+        let section = sectionsAndMovies.value.first { $0.section.rawValue == section }
         return section?.movies ?? []
     }
 
@@ -79,6 +131,6 @@ final class FeedViewModel {
     }
 
     func getMoviesCountBySection(section: Int) -> Int {
-        sectionsAndMovies.value.first { $0.id == section}?.movies.count ?? 0
+        sectionsAndMovies.value.first { $0.section.rawValue == section}?.movies.count ?? 0
     }
 }
