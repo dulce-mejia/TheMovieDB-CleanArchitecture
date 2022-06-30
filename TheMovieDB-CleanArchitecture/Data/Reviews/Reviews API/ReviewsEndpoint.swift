@@ -12,8 +12,6 @@ public struct ReviewsEndpoint: Endpoint {
         "/3/movie/\(movieId)/reviews"
     }
 
-    public var queryItems: [String: String] = [:]
-
     let movieId: Int
 
     public init(movieId: Int) {

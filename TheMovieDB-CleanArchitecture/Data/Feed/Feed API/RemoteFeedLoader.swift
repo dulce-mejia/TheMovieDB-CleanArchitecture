@@ -26,7 +26,7 @@ public final class RemoteFeedLoader: FeedLoader {
     public func load(_ feedType: FeedType, completion: @escaping (Result) -> Void) {
 
         guard let finalUrl = feedType.urlComponents?.url else { return }
-
+        print("url....", finalUrl)
         client.get(from: finalUrl) { result in
             switch result {
             case let .success((data, response)):

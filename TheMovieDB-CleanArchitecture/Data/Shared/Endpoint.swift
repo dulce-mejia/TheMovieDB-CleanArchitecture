@@ -12,6 +12,10 @@ public protocol Endpoint {
     var queryItems: [String: String] { get }
 }
 extension Endpoint {
+    private var supportedLanguages: [String] {
+        ["en", "es"]
+    }
+
     private var base: String {
         "https://api.themoviedb.org"
     }
@@ -20,7 +24,7 @@ extension Endpoint {
         "api_key"
     }
 
-    var apiKeyValue: String {
+    private var apiKeyValue: String {
         "f6cd5c1a9e6c6b965fdcab0fa6ddd38a"
     }
 
@@ -31,5 +35,14 @@ extension Endpoint {
         newComponents.queryItems = [URLQueryItem(name: apiKey, value: apiKeyValue)]
         newComponents.queryItems?.append(contentsOf: queryItems.map({URLQueryItem(name: $0, value: $1)}))
         return newComponents
+    }
+
+    public var queryItems: [String: String] {
+        guard let code = Locale.current.languageCode,
+              let region = Locale.current.regionCode,
+              supportedLanguages.contains(code) else {
+            return ["language": "en", "region": "US"]
+        }
+        return ["language": code, "region": region]
     }
 }

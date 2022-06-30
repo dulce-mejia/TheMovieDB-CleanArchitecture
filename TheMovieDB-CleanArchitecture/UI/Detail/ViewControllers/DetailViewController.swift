@@ -114,7 +114,6 @@ final class DetailViewController: UIViewController {
     }()
     private var overviewTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Overview"
         label.font = UIFont.systemFont(ofSize: Constants.fontSize_body, weight: .semibold)
         return label
     }()
@@ -130,7 +129,6 @@ final class DetailViewController: UIViewController {
     }()
     private var castTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Cast"
         label.font = UIFont.systemFont(ofSize: Constants.fontSize_body, weight: .semibold)
         return label
     }()
@@ -153,8 +151,7 @@ final class DetailViewController: UIViewController {
         return collection
     }()
     private var moviesSegmented: UISegmentedControl = {
-        let items = ["Similar", "Recommended"]
-        let segmented = UISegmentedControl(items: items)
+        let segmented = UISegmentedControl()
         segmented.selectedSegmentIndex = .zero
         segmented.selectedSegmentTintColor = .systemBlue
         return segmented
@@ -201,7 +198,28 @@ final class DetailViewController: UIViewController {
         stackContainerScrollView.addArrangedSubview(castCollectionView)
         stackContainerScrollView.addArrangedSubview(moviesSegmented)
         stackContainerScrollView.addArrangedSubview(recommendedSimilarCollectionView)
-        // Set Constraints
+        setupConstraints()
+        updateStackAxis(traitCollection: traitCollection)
+
+        setupSegmented()
+        overviewTitleLabel.text = viewModel.overviewTitle
+        castTitleLabel.text = viewModel.castTitle
+        titleLabel.text = viewModel.title
+        overviewLabel.text = viewModel.overview
+    }
+
+    private func registerCells() {
+        castCollectionView.register(CastView.self, forCellWithReuseIdentifier: CastView.reusableIdentifier)
+        recommendedSimilarCollectionView.register(MovieView.self, forCellWithReuseIdentifier: MovieView.reusableIdentifier)
+    }
+
+    private func setupSegmented() {
+        moviesSegmented.insertSegment(withTitle: viewModel.similarTitle, at: 0, animated: false)
+        moviesSegmented.insertSegment(withTitle: viewModel.recommendedTitle, at: 1, animated: false)
+        moviesSegmented.selectedSegmentIndex = 0
+    }
+
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
             stackContainer.topAnchor.constraint(equalTo: view.topAnchor),
             stackContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -226,15 +244,6 @@ final class DetailViewController: UIViewController {
                                                     constant: Constants.reviewButtonTrailingMargin)
         ])
         constrainstForScrollview()
-        updateStackAxis(traitCollection: traitCollection)
-
-        titleLabel.text = viewModel.title
-        overviewLabel.text = viewModel.overview
-    }
-
-    private func registerCells() {
-        castCollectionView.register(CastView.self, forCellWithReuseIdentifier: CastView.reusableIdentifier)
-        recommendedSimilarCollectionView.register(MovieView.self, forCellWithReuseIdentifier: MovieView.reusableIdentifier)
     }
 
     private func constrainstForScrollview() {

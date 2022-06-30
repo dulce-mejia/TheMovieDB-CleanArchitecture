@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  TheMovieDB-CleanArchitecture
+
+  Created by Dulce Mejia Aguayo on 30/06/22.
+  
+*/
+//Feed
+"FEED_TITLE"="The MovieDB";
+"SECTION_NOW_PLAYING"="Now Playing";
+"SECTION_TRENDING"="Trending";
+"SECTION_POPULAR"="Popular";
+"SECTION_TOP_RATED"="Top Rated";
+"SECTION_UPCOMING"="Upcoming";
+//Detail
+"OVERVIEW"="Overview";
+"CAST"="Cast";
+"SIMILAR_TITLE"="Similar";
+"RECOMMENDED_TITLE"="Recommended";
+// Reviews
+"ALERT_OK"="Ok";
+"ALERT_TITLE"="Error";
+"ALERT_MESSAGE"="No reviews yet!";

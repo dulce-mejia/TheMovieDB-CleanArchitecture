@@ -12,8 +12,6 @@ public struct SimilarEnpoint: Endpoint {
         "/3/movie/\(movieId)/similar"
     }
 
-    public var queryItems: [String: String] = [:]
-
     let movieId: Int
 
     public init(movieId: Int) {

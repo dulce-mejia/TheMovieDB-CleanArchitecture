@@ -8,6 +8,6 @@
 import Foundation
 
 public struct FeedSectionViewModel {
-    public let id: Int
-    public let movies: [Movie]
+    public let section: FeedViewModel.FeedSection
+    public let movies: [MovieViewModel]
 }
