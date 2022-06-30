@@ -60,8 +60,7 @@ public final class FeedViewModel {
         self.imageLoader = imageLoader
     }
 
-    public let listOfMovies = BehaviorRelay<[MovieViewModel]>(value: [])
-    private var sectionsAndMovies = BehaviorRelay<[FeedSectionViewModel]>(value: [])
+    public var sectionsAndMovies = BehaviorRelay<[FeedSectionViewModel]>(value: [])
 
     public func loadFeed() {
         let group = DispatchGroup()
@@ -76,7 +75,8 @@ public final class FeedViewModel {
                 }
 
                 movies.append(FeedSectionViewModel(section: self.getSection(type),
-                                                   movies: feedForSection.results))
+                                                   movies: feedForSection.results.map({ MovieViewModel(movie: $0,
+                                                                                                       imageLoader: self.imageLoader) })))
                 group.leave()
             }
         }
@@ -84,13 +84,6 @@ public final class FeedViewModel {
             movies.sort { $0.section.rawValue < $1.section.rawValue }
             guard let self = self else { return }
             self.sectionsAndMovies.accept(movies)
-
-            let viewModels = self.sectionsAndMovies.value
-                .flatMap({ $0.movies.map {
-                        MovieViewModel(movie: $0, imageLoader: self.imageLoader)
-                    }
-                })
-            self.listOfMovies.accept(viewModels)
         }
     }
 
@@ -121,13 +114,13 @@ public final class FeedViewModel {
         return feedSection.section
     }
 
-    func getMoviesBySection(section: Int) -> [Movie] {
-        let section = sectionsAndMovies.value.first { $0.section.rawValue == section }
-        return section?.movies ?? []
-    }
-
-    func getMovieViewModel(by indexPath: IndexPath) -> MovieViewModel {
-        listOfMovies.value[indexPath.row]
+    func getMovieViewModel(by indexPath: IndexPath) -> MovieViewModel? {
+        guard indexPath.section <= sectionsAndMovies.value.count else {
+            return nil
+        }
+        let moviesInSection = sectionsAndMovies.value[indexPath.section]
+        let movie = moviesInSection.movies[indexPath.row]
+        return movie
     }
 
     func getMoviesCountBySection(section: Int) -> Int {

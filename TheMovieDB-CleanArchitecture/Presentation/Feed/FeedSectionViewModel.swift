@@ -9,5 +9,5 @@ import Foundation
 
 public struct FeedSectionViewModel {
     public let section: FeedViewModel.FeedSection
-    public let movies: [Movie]
+    public let movies: [MovieViewModel]
 }

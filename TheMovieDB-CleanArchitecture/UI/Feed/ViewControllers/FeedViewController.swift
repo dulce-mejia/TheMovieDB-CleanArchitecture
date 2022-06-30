@@ -97,7 +97,7 @@ final class FeedViewController: UIViewController {
     }
 
     private func setupObservers() {
-        viewModel.listOfMovies.asObservable()
+        viewModel.sectionsAndMovies.asObservable()
             .subscribe { [weak self ] _ in
                 self?.movieFeedCollectionView.reloadData()
             }
@@ -121,8 +121,8 @@ extension FeedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieView.reusableIdentifier, for: indexPath)
         if let cell = cell as? MovieView {
-            let moviesBySection = viewModel.getMoviesBySection(section: indexPath.section)
-            guard !moviesBySection.isEmpty else {
+            let moviesBySection = viewModel.getMoviesCountBySection(section: indexPath.section)
+            guard moviesBySection != .zero else {
                 return UICollectionViewCell()
             }
             cell.viewModel = viewModel.getMovieViewModel(by: indexPath)
@@ -141,7 +141,6 @@ extension FeedViewController: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
         header.viewModel = MovieSectionViewModel(title: sectionHeader(with: indexPath) ?? "Results")
-        
         return header
     }
 
@@ -154,7 +153,9 @@ extension FeedViewController: UICollectionViewDataSource {
 }
 extension FeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedMovieViewModel = viewModel.getMovieViewModel(by: indexPath)
+        guard let selectedMovieViewModel = viewModel.getMovieViewModel(by: indexPath) else {
+            return
+        }
         onSelectedMovie?(selectedMovieViewModel)
     }
 }
