@@ -57,6 +57,16 @@
 		F976F109286509E000DF87AB /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F108286509E000DF87AB /* FeedUIComposer.swift */; };
 		F976F10B2865112B00DF87AB /* FeedSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */; };
 		F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */; };
+		F981E388286CB70500EC4DDD /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E387286CB70500EC4DDD /* Review.swift */; };
+		F981E38A286CB75600EC4DDD /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E389286CB75600EC4DDD /* Author.swift */; };
+		F981E38D286CB7E000EC4DDD /* ReviewsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */; };
+		F981E391286CC36A00EC4DDD /* ReviewsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */; };
+		F981E393286CC62000EC4DDD /* ReviewsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E392286CC62000EC4DDD /* ReviewsMapper.swift */; };
+		F981E395286CC81300EC4DDD /* RemoteReviewsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E394286CC81300EC4DDD /* RemoteReviewsLoader.swift */; };
+		F981E399286D014700EC4DDD /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E398286D014700EC4DDD /* ReviewsViewController.swift */; };
+		F981E39D286D01CE00EC4DDD /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E39C286D01CE00EC4DDD /* ReviewView.swift */; };
+		F981E39F286D02EE00EC4DDD /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E39E286D02EE00EC4DDD /* ReviewsViewModel.swift */; };
+		F981E3A1286D05BD00EC4DDD /* ReviewsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E3A0286D05BD00EC4DDD /* ReviewsUIComposer.swift */; };
 		F9BDF9C8286B6C7800F5AB2D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9C7286B6C7800F5AB2D /* DetailViewModel.swift */; };
 		F9BDF9CB286B7FCA00F5AB2D /* CastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9CA286B7FCA00F5AB2D /* CastView.swift */; };
 		F9BDF9CD286B817F00F5AB2D /* CastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BDF9CC286B817F00F5AB2D /* CastViewModel.swift */; };
@@ -141,6 +151,16 @@
 		F976F108286509E000DF87AB /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSectionViewModel.swift; sourceTree = "<group>"; };
 		F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		F981E387286CB70500EC4DDD /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		F981E389286CB75600EC4DDD /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLoader.swift; sourceTree = "<group>"; };
+		F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsEndpoint.swift; sourceTree = "<group>"; };
+		F981E392286CC62000EC4DDD /* ReviewsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsMapper.swift; sourceTree = "<group>"; };
+		F981E394286CC81300EC4DDD /* RemoteReviewsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteReviewsLoader.swift; sourceTree = "<group>"; };
+		F981E398286D014700EC4DDD /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
+		F981E39C286D01CE00EC4DDD /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		F981E39E286D02EE00EC4DDD /* ReviewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewModel.swift; sourceTree = "<group>"; };
+		F981E3A0286D05BD00EC4DDD /* ReviewsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsUIComposer.swift; sourceTree = "<group>"; };
 		F9BDF9C7286B6C7800F5AB2D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F9BDF9CA286B7FCA00F5AB2D /* CastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastView.swift; sourceTree = "<group>"; };
 		F9BDF9CC286B817F00F5AB2D /* CastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewModel.swift; sourceTree = "<group>"; };
@@ -267,6 +287,7 @@
 				F9610F2328637C9E002582D7 /* Shared */,
 				F9610F1D2863741C002582D7 /* Feed */,
 				F9675DFF286A53C1007E4A9A /* Detail */,
+				F981E38E286CC33400EC4DDD /* Reviews */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -286,6 +307,7 @@
 				F976F0F42864D11300DF87AB /* Shared */,
 				F9610F1C28637414002582D7 /* Feed */,
 				F9675DF4286A34BE007E4A9A /* Detail */,
+				F981E385286CB6CF00EC4DDD /* Reviews */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -295,6 +317,7 @@
 			children = (
 				F9610F1B28635FF6002582D7 /* Feed */,
 				F9675E19286A6AE7007E4A9A /* Detail */,
+				F981E397286D011900EC4DDD /* Reviews */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -305,6 +328,7 @@
 				F90A6F462862327B0037D2BB /* Shared */,
 				F9610F1A28635FEA002582D7 /* Feed */,
 				F9675E18286A6ADB007E4A9A /* Detail */,
+				F981E396286D010E00EC4DDD /* Reviews */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -537,8 +561,86 @@
 			children = (
 				F976F108286509E000DF87AB /* FeedUIComposer.swift */,
 				F9BDF9CE286B9A7500F5AB2D /* DetailUIComposer.swift */,
+				F981E3A0286D05BD00EC4DDD /* ReviewsUIComposer.swift */,
 			);
 			path = Composers;
+			sourceTree = "<group>";
+		};
+		F981E385286CB6CF00EC4DDD /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				F981E38B286CB7AF00EC4DDD /* UseCases */,
+				F981E386286CB6E200EC4DDD /* Models */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		F981E386286CB6E200EC4DDD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F981E387286CB70500EC4DDD /* Review.swift */,
+				F981E389286CB75600EC4DDD /* Author.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F981E38B286CB7AF00EC4DDD /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		F981E38E286CC33400EC4DDD /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				F981E38F286CC34600EC4DDD /* Reviews API */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		F981E38F286CC34600EC4DDD /* Reviews API */ = {
+			isa = PBXGroup;
+			children = (
+				F981E390286CC36A00EC4DDD /* ReviewsEndpoint.swift */,
+				F981E392286CC62000EC4DDD /* ReviewsMapper.swift */,
+				F981E394286CC81300EC4DDD /* RemoteReviewsLoader.swift */,
+			);
+			path = "Reviews API";
+			sourceTree = "<group>";
+		};
+		F981E396286D010E00EC4DDD /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				F981E39B286D01B400EC4DDD /* Views */,
+				F981E39A286D01A800EC4DDD /* ViewControllers */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		F981E397286D011900EC4DDD /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				F981E39E286D02EE00EC4DDD /* ReviewsViewModel.swift */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
+		F981E39A286D01A800EC4DDD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F981E398286D014700EC4DDD /* ReviewsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F981E39B286D01B400EC4DDD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F981E39C286D01CE00EC4DDD /* ReviewView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F9BDF9C9286B7EEA00F5AB2D /* Views */ = {
@@ -831,10 +933,12 @@
 				F976F0FC2864DBE000DF87AB /* MovieSectionView.swift in Sources */,
 				F9675DFE286A4A86007E4A9A /* RecommendedLoader.swift in Sources */,
 				F9610F282863B551002582D7 /* FeedLoader.swift in Sources */,
+				F981E388286CB70500EC4DDD /* Review.swift in Sources */,
 				F976F0F62864D12300DF87AB /* GenericResult.swift in Sources */,
 				F93E33382862756E00A0CA2D /* OSLog+LogType.swift in Sources */,
 				F93E333A286275AE00A0CA2D /* UINavigationAppearance+defaultApperance.swift in Sources */,
 				F9675E15286A65F7007E4A9A /* RecommendedMapper.swift in Sources */,
+				F981E391286CC36A00EC4DDD /* ReviewsEndpoint.swift in Sources */,
 				F9675E1C286A6D7A007E4A9A /* DetailViewController.swift in Sources */,
 				F965F0CA28661E7E00494A30 /* RemoteImageLoader.swift in Sources */,
 				F9675DFC286A4A57007E4A9A /* SimilarLoader.swift in Sources */,
@@ -845,18 +949,23 @@
 				F976F1002864DD1D00DF87AB /* UIImageView+loadImage.swift in Sources */,
 				F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */,
 				F9675DFA286A48CF007E4A9A /* Cast.swift in Sources */,
+				F981E38A286CB75600EC4DDD /* Author.swift in Sources */,
 				F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */,
 				F965F0CE286661B200494A30 /* LocalImageCache.swift in Sources */,
 				F965F0CC286625A800494A30 /* ImageCache.swift in Sources */,
 				F9675E17286A6623007E4A9A /* RemoteRecommendedLoader.swift in Sources */,
 				F976F1042864ED6900DF87AB /* MovieSectionViewModel.swift in Sources */,
 				F9675E11286A6397007E4A9A /* SimilarMapper.swift in Sources */,
+				F981E393286CC62000EC4DDD /* ReviewsMapper.swift in Sources */,
+				F981E39D286D01CE00EC4DDD /* ReviewView.swift in Sources */,
 				F9BDF9CF286B9A7500F5AB2D /* DetailUIComposer.swift in Sources */,
 				F9675E0D286A5F93007E4A9A /* SimilarEndpoint.swift in Sources */,
 				F9675E13286A6487007E4A9A /* RemoteSimilarLoader.swift in Sources */,
+				F981E399286D014700EC4DDD /* ReviewsViewController.swift in Sources */,
 				F965F0C828661E1900494A30 /* ImageLoader.swift in Sources */,
 				F90A6F1128622C8D0037D2BB /* AppDelegate.swift in Sources */,
 				F9610F2C2863B820002582D7 /* HTTPClient.swift in Sources */,
+				F981E3A1286D05BD00EC4DDD /* ReviewsUIComposer.swift in Sources */,
 				F976F1062864F07900DF87AB /* FeedViewModel.swift in Sources */,
 				F9610F302863D675002582D7 /* FeedType.swift in Sources */,
 				F9610F322863D873002582D7 /* FeedMapper.swift in Sources */,
@@ -864,11 +973,14 @@
 				F9610F2528637CB5002582D7 /* GenericResultDTO.swift in Sources */,
 				F9610F2128637BF7002582D7 /* Movie.swift in Sources */,
 				F9BDF9C8286B6C7800F5AB2D /* DetailViewModel.swift in Sources */,
+				F981E38D286CB7E000EC4DDD /* ReviewsLoader.swift in Sources */,
 				F9675E0F286A627E007E4A9A /* RecommendedEndpoint.swift in Sources */,
 				F976F10B2865112B00DF87AB /* FeedSectionViewModel.swift in Sources */,
 				F976F0FE2864DC7F00DF87AB /* MovieView.swift in Sources */,
+				F981E39F286D02EE00EC4DDD /* ReviewsViewModel.swift in Sources */,
 				F9BDF9CB286B7FCA00F5AB2D /* CastView.swift in Sources */,
 				F9675E04286A540F007E4A9A /* RemoteCastLoader.swift in Sources */,
+				F981E395286CC81300EC4DDD /* RemoteReviewsLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 final class FeedUIComposer {
     private init() {}
@@ -29,6 +30,13 @@ final class FeedUIComposer {
                                                   recommendedLoader: remoteRecommendedLoader,
                                                   imageLoader: imageLoader)
             let detailVC = DetailViewController(viewModel: detailViewModel)
+            detailVC.onShowReviews = { movieVM in
+                let reviewsLoader = RemoteReviewsLoader(client: httpClient)
+                let reviewsVC = ReviewsUIComposer.composedWith(reviewsLoader: reviewsLoader,
+                                                               movieViewModel: movieVM)
+                let viewContainer = UIHostingController(rootView: reviewsVC)
+                navController.pushViewController(viewContainer, animated: true)
+            }
             navController.pushViewController(detailVC, animated: true)
         }
         return feedVC
