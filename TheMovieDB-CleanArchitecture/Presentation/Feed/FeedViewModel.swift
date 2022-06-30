@@ -11,7 +11,15 @@ import RxRelay
 
 final class FeedViewModel {
 
-    public let title = "The Movie DB"
+    enum Strings: String {
+        case title = "FEED_TITLE"
+
+        var localized: String {
+            NSLocalizedString(self.rawValue, comment: "")
+        }
+    }
+
+    public let title = Strings.title.localized
 
     private let feedLoader: FeedLoader
     private let imageLoader: ImageLoader

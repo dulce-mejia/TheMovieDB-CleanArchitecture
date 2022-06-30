@@ -16,9 +16,9 @@ final class ReviewViewModel: ObservableObject {
     @Published var showNoContentMsg: Bool = false
 
     enum Strings: String {
-        case alertOk = "OK"
-        case alertTitle = "Error"
-        case alertMsg = "No reviews yet!"
+        case alertOk = "ALERT_OK"
+        case alertTitle = "ALERT_TITLE"
+        case alertMsg = "ALERT_MESSAGE"
 
         var localized: String {
             NSLocalizedString(self.rawValue, comment: "")
@@ -35,15 +35,15 @@ final class ReviewViewModel: ObservableObject {
     }
 
     public var alertOk: String {
-        Strings.alertOk.rawValue
+        Strings.alertOk.localized
     }
 
     public var alertTitle: String {
-        Strings.alertTitle.rawValue
+        Strings.alertTitle.localized
     }
 
     public var alertMsg: String {
-        Strings.alertMsg.rawValue
+        Strings.alertMsg.localized
     }
 
     public func loadReviews() {

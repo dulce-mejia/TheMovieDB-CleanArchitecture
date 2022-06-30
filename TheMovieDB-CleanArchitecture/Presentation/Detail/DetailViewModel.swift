@@ -29,6 +29,22 @@ public final class DetailViewModel {
         case similar = 0, recommended
     }
 
+    enum Strings: String {
+        case overview = "OVERVIEW"
+        case cast = "CAST"
+        case similar = "SIMILAR_TITLE"
+        case recommended = "RECOMMENDED_TITLE"
+
+        var localized: String {
+            NSLocalizedString(self.rawValue, comment: "")
+        }
+    }
+
+    public let overviewTitle = Strings.overview.localized
+    public let castTitle = Strings.cast.localized
+    public let similarTitle = Strings.similar.localized
+    public let recommendedTitle = Strings.recommended.localized
+
     public init(viewModel: MovieViewModel,
                 castLoader: CastLoader,
                 similarLoader: SimilarLoader,
