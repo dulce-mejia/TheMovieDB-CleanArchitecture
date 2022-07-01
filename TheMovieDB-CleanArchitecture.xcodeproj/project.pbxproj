@@ -58,6 +58,8 @@
 		F976F109286509E000DF87AB /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F108286509E000DF87AB /* FeedUIComposer.swift */; };
 		F976F10B2865112B00DF87AB /* FeedSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */; };
 		F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */; };
+		F9793D11286F6B790057105B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9793D10286F6B790057105B /* Router.swift */; };
+		F9793D13286F7B860057105B /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9793D12286F7B860057105B /* NavigationRouter.swift */; };
 		F981E388286CB70500EC4DDD /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E387286CB70500EC4DDD /* Review.swift */; };
 		F981E38A286CB75600EC4DDD /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E389286CB75600EC4DDD /* Author.swift */; };
 		F981E38D286CB7E000EC4DDD /* ReviewsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */; };
@@ -155,6 +157,8 @@
 		F976F108286509E000DF87AB /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSectionViewModel.swift; sourceTree = "<group>"; };
 		F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		F9793D10286F6B790057105B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F9793D12286F7B860057105B /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		F981E387286CB70500EC4DDD /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		F981E389286CB75600EC4DDD /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLoader.swift; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 		F90A6F402862319A0037D2BB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F9793D0E286F6B1F0057105B /* Coordinator */,
 				F976F107286503E900DF87AB /* Composers */,
 				F90A6F1028622C8D0037D2BB /* AppDelegate.swift */,
 				F90A6F1E28622C8F0037D2BB /* Info.plist */,
@@ -569,6 +574,23 @@
 				F981E3A0286D05BD00EC4DDD /* ReviewsUIComposer.swift */,
 			);
 			path = Composers;
+			sourceTree = "<group>";
+		};
+		F9793D0E286F6B1F0057105B /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F9793D0F286F6B360057105B /* Routers */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F9793D0F286F6B360057105B /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				F9793D10286F6B790057105B /* Router.swift */,
+				F9793D12286F7B860057105B /* NavigationRouter.swift */,
+			);
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		F981E385286CB6CF00EC4DDD /* Reviews */ = {
@@ -938,6 +960,7 @@
 				F9675E08286A5D1A007E4A9A /* CastMapper.swift in Sources */,
 				F976F109286509E000DF87AB /* FeedUIComposer.swift in Sources */,
 				F976F0FC2864DBE000DF87AB /* MovieSectionView.swift in Sources */,
+				F9793D13286F7B860057105B /* NavigationRouter.swift in Sources */,
 				F9675DFE286A4A86007E4A9A /* RecommendedLoader.swift in Sources */,
 				F9610F282863B551002582D7 /* FeedLoader.swift in Sources */,
 				F981E388286CB70500EC4DDD /* Review.swift in Sources */,
@@ -957,6 +980,7 @@
 				F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */,
 				F9675DFA286A48CF007E4A9A /* Cast.swift in Sources */,
 				F981E38A286CB75600EC4DDD /* Author.swift in Sources */,
+				F9793D11286F6B790057105B /* Router.swift in Sources */,
 				F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */,
 				F965F0CE286661B200494A30 /* LocalImageCache.swift in Sources */,
 				F965F0CC286625A800494A30 /* ImageCache.swift in Sources */,
