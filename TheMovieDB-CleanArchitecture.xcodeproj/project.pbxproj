@@ -58,8 +58,8 @@
 		F976F109286509E000DF87AB /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F108286509E000DF87AB /* FeedUIComposer.swift */; };
 		F976F10B2865112B00DF87AB /* FeedSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */; };
 		F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */; };
-		F9793D11286F6B790057105B /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9793D10286F6B790057105B /* Router.swift */; };
-		F9793D13286F7B860057105B /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9793D12286F7B860057105B /* NavigationRouter.swift */; };
+		F9793D15286F9B580057105B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9793D14286F9B580057105B /* Coordinator.swift */; };
+		F9793D18286F9C820057105B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9793D17286F9C820057105B /* MainCoordinator.swift */; };
 		F981E388286CB70500EC4DDD /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E387286CB70500EC4DDD /* Review.swift */; };
 		F981E38A286CB75600EC4DDD /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E389286CB75600EC4DDD /* Author.swift */; };
 		F981E38D286CB7E000EC4DDD /* ReviewsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */; };
@@ -157,8 +157,8 @@
 		F976F108286509E000DF87AB /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		F976F10A2865112B00DF87AB /* FeedSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSectionViewModel.swift; sourceTree = "<group>"; };
 		F976F10C286516B300DF87AB /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
-		F9793D10286F6B790057105B /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		F9793D12286F7B860057105B /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		F9793D14286F9B580057105B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F9793D17286F9C820057105B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F981E387286CB70500EC4DDD /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		F981E389286CB75600EC4DDD /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		F981E38C286CB7E000EC4DDD /* ReviewsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsLoader.swift; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 		F90A6F402862319A0037D2BB /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				F9793D0E286F6B1F0057105B /* Coordinator */,
+				F9793D0E286F6B1F0057105B /* Coordinators */,
 				F976F107286503E900DF87AB /* Composers */,
 				F90A6F1028622C8D0037D2BB /* AppDelegate.swift */,
 				F90A6F1E28622C8F0037D2BB /* Info.plist */,
@@ -576,21 +576,13 @@
 			path = Composers;
 			sourceTree = "<group>";
 		};
-		F9793D0E286F6B1F0057105B /* Coordinator */ = {
+		F9793D0E286F6B1F0057105B /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				F9793D0F286F6B360057105B /* Routers */,
+				F9793D14286F9B580057105B /* Coordinator.swift */,
+				F9793D17286F9C820057105B /* MainCoordinator.swift */,
 			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		F9793D0F286F6B360057105B /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				F9793D10286F6B790057105B /* Router.swift */,
-				F9793D12286F7B860057105B /* NavigationRouter.swift */,
-			);
-			path = Routers;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		F981E385286CB6CF00EC4DDD /* Reviews */ = {
@@ -960,7 +952,6 @@
 				F9675E08286A5D1A007E4A9A /* CastMapper.swift in Sources */,
 				F976F109286509E000DF87AB /* FeedUIComposer.swift in Sources */,
 				F976F0FC2864DBE000DF87AB /* MovieSectionView.swift in Sources */,
-				F9793D13286F7B860057105B /* NavigationRouter.swift in Sources */,
 				F9675DFE286A4A86007E4A9A /* RecommendedLoader.swift in Sources */,
 				F9610F282863B551002582D7 /* FeedLoader.swift in Sources */,
 				F981E388286CB70500EC4DDD /* Review.swift in Sources */,
@@ -980,7 +971,6 @@
 				F976F10D286516B300DF87AB /* URLSessionHTTPClient.swift in Sources */,
 				F9675DFA286A48CF007E4A9A /* Cast.swift in Sources */,
 				F981E38A286CB75600EC4DDD /* Author.swift in Sources */,
-				F9793D11286F6B790057105B /* Router.swift in Sources */,
 				F976F0F82864D9AF00DF87AB /* FeedViewController.swift in Sources */,
 				F965F0CE286661B200494A30 /* LocalImageCache.swift in Sources */,
 				F965F0CC286625A800494A30 /* ImageCache.swift in Sources */,
@@ -1005,9 +995,11 @@
 				F9610F2128637BF7002582D7 /* Movie.swift in Sources */,
 				F9BDF9C8286B6C7800F5AB2D /* DetailViewModel.swift in Sources */,
 				F981E38D286CB7E000EC4DDD /* ReviewsLoader.swift in Sources */,
+				F9793D15286F9B580057105B /* Coordinator.swift in Sources */,
 				F9675E0F286A627E007E4A9A /* RecommendedEndpoint.swift in Sources */,
 				F976F10B2865112B00DF87AB /* FeedSectionViewModel.swift in Sources */,
 				F976F0FE2864DC7F00DF87AB /* MovieView.swift in Sources */,
+				F9793D18286F9C820057105B /* MainCoordinator.swift in Sources */,
 				F981E39F286D02EE00EC4DDD /* ReviewsViewModel.swift in Sources */,
 				F9BDF9CB286B7FCA00F5AB2D /* CastView.swift in Sources */,
 				F9675E04286A540F007E4A9A /* RemoteCastLoader.swift in Sources */,

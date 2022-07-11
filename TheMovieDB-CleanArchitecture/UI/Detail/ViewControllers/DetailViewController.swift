@@ -159,7 +159,7 @@ final class DetailViewController: UIViewController {
 
     private let viewModel: DetailViewModel
     private let disposeBag = DisposeBag()
-    public var onShowReviews: ((MovieViewModel) -> Void)?
+    public weak var coordinator: MainCoordinator?
 
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
@@ -310,7 +310,7 @@ final class DetailViewController: UIViewController {
     }
 
     @objc private func showReviews() {
-        onShowReviews?(viewModel.movieViewModel)
+        coordinator?.showReviews(viewModel.movieViewModel)
     }
 
     @objc func similarRecommendedAction(_ sender: UISegmentedControl) {
