@@ -11,6 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let appName = "TheMovieDB"
     var window: UIWindow?
+    var coordinator: MainCoordinator?
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,23 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func runAppFlow() {
         let httpClient = URLSessionHTTPClient(session: makeURLSession())
-        let firstVC = loadFirstVC(httpClient: httpClient)
-        setupRootViewController(firstVC)
-    }
+        let navController = UINavigationController()
+        coordinator = MainCoordinator(navigationController: navController,
+                                      client: httpClient)
+        coordinator?.start()
 
-    private func setupRootViewController(_ rootViewController: UIViewController) {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.overrideUserInterfaceStyle = .dark
-        self.window?.rootViewController = rootViewController
+        self.window?.rootViewController = navController
         self.window?.makeKeyAndVisible()
-    }
-
-    private func loadFirstVC(httpClient: HTTPClient) -> UIViewController {
-        let navController = UINavigationController()
-        let feedVC = FeedUIComposer.feedComposedWith(httpClient: httpClient,
-                                                     navController: navController)
-        navController.viewControllers = [feedVC]
-        return navController
     }
 
     private func makeURLSession() -> URLSession {

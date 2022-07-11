@@ -36,7 +36,7 @@ final class FeedViewController: UIViewController {
 
     private let viewModel: FeedViewModel
     private let disposeBag = DisposeBag()
-    public var onSelectedMovie: ((MovieViewModel) -> Void)?
+    public weak var coordinator: MainCoordinator?
 
     init(viewModel: FeedViewModel) {
         self.viewModel = viewModel
@@ -156,6 +156,6 @@ extension FeedViewController: UICollectionViewDelegate {
         guard let selectedMovieViewModel = viewModel.getMovieViewModel(by: indexPath) else {
             return
         }
-        onSelectedMovie?(selectedMovieViewModel)
+        coordinator?.showDetail(selectedMovieViewModel)
     }
 }
